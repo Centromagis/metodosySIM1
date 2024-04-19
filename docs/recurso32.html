@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Métodos y Simulación Estadística" />
+
+
+<title> Visualización de variables cuantitativas</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"> </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Métodos
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Conceptos básicos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso10.html">Conceptos Básicos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso11.html">Conceptos</a>
+    </li>
+    <li>
+      <a href="recurso12.html">Importar datos</a>
+    </li>
+    <li>
+      <a href="recurso13.html">Ordenar y limpiar datos</a>
+    </li>
+    <li>
+      <a href="recurso14.html">Fusión de datos</a>
+    </li>
+    <li>
+      <a href="recurso15.html">Estandarización - Normalización</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Análisis de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso20.html">Análisis de datos</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso21.html">Tablas de frecuencia</a>
+    </li>
+    <li>
+      <a href="recurso22.html">Indicadores de posición</a>
+    </li>
+    <li>
+      <a href="recurso23.html">Indicadores de centro</a>
+    </li>
+    <li>
+      <a href="recurso24.html">Indicadores de disperción</a>
+    </li>
+    <li>
+      <a href="recurso25.html">Indicadores de forma</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Visualización de datos
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso30.html">Visualización</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso31.html">Visualización variables cualitativas</a>
+    </li>
+    <li>
+      <a href="recurso32.html">Visualización variables cuantitativas</a>
+    </li>
+    <li>
+      <a href="recurso33.html">Visualización multivariada</a>
+    </li>
+    <li>
+      <a href="recurso34.html">Parámetros de gráficos</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Software R
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="recurso40.html">Introducción a R</a>
+    </li>
+    <li class="divider"></li>
+    <li>
+      <a href="recurso41.html">Objetos en R</a>
+    </li>
+    <li>
+      <a href="recurso42.html">Referencias</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+<div class="btn-group pull-right float-right">
+<button type="button" class="btn btn-default btn-xs btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu dropdown-menu-right" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore"><span style="color:#034a94">
+<strong>Visualización de variables cuantitativas</strong></span></h1>
+<h4 class="author">Métodos y Simulación Estadística</h4>
+
+</div>
+
+
+<p></br></p>
+<div id="variables-cuantitativas" class="section level1">
+<h1><span style="color:#034a94"><strong>Variables
+cuantitativas</strong></span></h1>
+<p>En el caso de las variables numéricas en escala de intervalo o de
+razón requieren un tipo de gráficas que permita visualizar sus
+principales características : centro, dispersión y forma.</p>
+<p>Empezaremos con el diagrama de tallos y hojas, que aunque no es un
+gráfico y corresponde a un ordenamiento de los datos, permite visualizar
+de una forma rápida su forma. También permite ubicar el valor mínimo y
+el máximo.</p>
+<div id="diagrama-de-tallos-y-hojas" class="section level2">
+<h2><span style="color:#034a94"><strong>Diagrama de tallos y
+hojas</strong></span></h2>
+<p><br/></p>
+<p>Diagrama de tallos y hojas para el tiempo empleado por las atletas de
+la categoria Veteranas B</p>
+<pre class="r"><code># seleccion de bases
+dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex==&quot;Mujer&quot; &amp; CarreraLuz22$categoria==&quot;4. Veteranos B&quot;)) # dataset de mujeres
+x=dataFc4$timerun/60
+stem(x) # Diagrama de tallos y hojas</code></pre>
+<pre><code>
+  The decimal point is 1 digit(s) to the right of the |
+
+  4 | 68
+  5 | 2234
+  5 | 6888899
+  6 | 01233334
+  6 | 5555566666778899
+  7 | 00111334
+  7 | 5667788
+  8 | 0001112333334
+  8 | 57899
+  9 | 04</code></pre>
+<p><br/></p>
+<p>Este diagrama ordena los datos, permitiendo reconstruir la serie :
+<code>46, 48,52,52,53,54,....90,94</code></p>
+<p><br/><br/><br/></p>
+</div>
+<div id="histograma" class="section level2">
+<h2><span style="color:#034a94"><strong>Histograma</strong></span></h2>
+<p><br/></p>
+<p>Para la construcción del histograma se el rango de los datos en
+intervalos que pueden ser de igual o diferente tamaño, recomendándose
+que tenga un número de divisiones apropiado ( 7 a 15) que permita
+resumir los datos.</p>
+<p>Aparentemente se puede semejar con un diagrama de barras, pues los
+rectángulos que lo conforman representan frecuencias, indicando que
+rectángulos más altos están indicando una mayor frecuencia de datos en
+su intervalo.</p>
+<p>Este tipo de gráficos permite visualizar además de la forma de los
+datos, su rango.</p>
+<pre class="r"><code>library(paqueteMETODOS)
+data(&quot;CarreraLuz22&quot;)
+# seleccion de bases
+dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex==&quot;Mujer&quot; &amp; CarreraLuz22$categoria==&quot;4. Veteranos B&quot;)) # dataset de mujeres
+x=dataFc4$timerun/60
+hist(x, 
+breaks = 6,
+las=1,
+main = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
+xlab=&quot;tiempo (min)&quot;,
+ylab = &quot;frecuencia&quot;,
+col =&quot;#ee964b&quot;)</code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div id="retos" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora el código oculto</p>
+<pre class="r"><code>library(paqueteMETODOS)
+library(ggplot2)
+
+data(&quot;CarreraLuz22&quot;)
+
+# Selección de bases
+dataFc4 &lt;- subset(CarreraLuz22, (CarreraLuz22$sex == &quot;Mujer&quot; &amp; CarreraLuz22$categoria == &quot;4. Veteranos B&quot;))
+
+# Crear el histograma con ggplot2
+p = ggplot(dataFc4, aes(x = timerun/60)) +
+geom_histogram(bins = 6, fill = &quot;#ee964b&quot;, color = &quot;white&quot;, alpha = 0.7) +
+labs(title = &quot;Distribución de los tiempos mujeres Veteranas B&quot;,
+x = &quot;Tiempo (min)&quot;,
+y = &quot;Frecuencia&quot;) +
+theme_minimal()
+
+ggplotly(p)</code></pre>
+</div>
+<p><br/><br/></p>
+</div>
+<div id="diagrama-de-densidad" class="section level2">
+<h2><span style="color:#034a94"><strong>Diagrama de
+densidad</strong></span></h2>
+<p><br/></p>
+<p>Este diagrama permite visualizar la forma de los datos, su rango y en
+que parte se concentra la mayoría de los datos. Es útil para establecer
+comparaciones con modelos de probabilidad teóricos como la distribución
+normal, uniforme, ji-cuadrado, ….</p>
+<pre class="r"><code>par(mar = c(5, 4, 4, 1)+0.5)  # margenes de la gráfica
+plot(density(x), lwd=3, col=&quot;#0d3b66&quot;,
+main = &quot;Distribución del tiempo - mujeres categoría Veteranas B&quot;,
+xlab=&quot;tiempo (min)&quot;,
+ylab = &quot;densidad&quot;, las=1,
+cex.lab=1,  # tamaño de etiqueta ejes
+cex.axis=.8, # tamaño escalas de los ejes 
+cex.main=1, # tamaño del titulo
+cex.sub=1)    # tamaño del subtitulo)</code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><br/><br/></p>
+<p><br/><br/></p>
+</div>
+<div id="diagrama-de-cajas" class="section level2">
+<h2><span style="color:#034a94"><strong>Diagrama de cajas</strong>
+</span></h2>
+<p><br/></p>
+<p>El diagrama de cajas permite visualizar el rango, los datos atípicos,
+los percentiles 25, 50 o mediana y 75, el valor mínimo y el máximo e
+intuir la forma de los datos. Además es útil al realizar la comparación
+de dos o mas variables numéricas.</p>
+<pre class="r"><code>boxplot(CarreraLuz22$timerun/60~CarreraLuz22$sex,
+main = &quot;Distribución del tiempo carrera La Luz 2022&quot;,
+ylab=&quot;tiempo (min)&quot;,
+xlab = &quot;sexo&quot;, las=1,
+col=c(&quot;#f4d35e&quot;,&quot;#ee964b&quot;))</code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div id="retos-1" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora el código oculto</p>
+<pre class="r"><code>library(paqueteMETODOS)
+library(ggplot2)
+library(plotly)
+
+data(&quot;CarreraLuz22&quot;)
+
+# Crear el boxplot con ggplot2
+p =ggplot(CarreraLuz22, aes(x = sex, y = timerun/60, fill = sex)) +
+geom_boxplot() +
+labs(title = &quot;Distribución del tiempo de carrera La Luz 2022&quot;,
+x = &quot;Sexo&quot;,
+y = &quot;Tiempo (min)&quot;) +
+scale_fill_manual(values = c(&quot;#f4d35e&quot;, &quot;#ee964b&quot;)) +
+theme_minimal()
+ggplotly(p)</code></pre>
+<pre class="r"><code>library(paqueteMETODOS)
+library(ggplot2)
+data(&quot;CarreraLuz22&quot;)
+
+# Definir la paleta de 5 colores
+paleta &lt;- colorRampPalette(c(&quot;#001B48&quot;, &quot;#97CADB&quot;))(5)
+
+# Crear el boxplot con ggplot2
+p &lt;- ggplot(CarreraLuz22, aes(x = sex, y = timerun/60, fill = categoria)) +
+geom_boxplot() +
+labs(title = &quot;Distribución del tiempo de carrera La Luz 2022&quot;,
+x = &quot;Sexo&quot;,
+y = &quot;Tiempo (min)&quot;) +
+scale_fill_manual(values = paleta) +
+theme_minimal()
+
+# Mostrar el gráfico ggplot2
+p</code></pre>
+</div>
+<p><br/><br/></p>
+</div>
+<div id="gráfico-de-series-de-tiempo" class="section level2">
+<h2><span style="color:#034a94"><strong>Gráfico de series de
+tiempo</strong></span></h2>
+<p><br/></p>
+<p>El gráfico de lineas es muy utilizado para representar series de
+tiempo, pudiendo visualizar sus principales características como son :
+tendencia, estacionalidad, ciclicidad y componentes aleatorios</p>
+<pre class="r"><code>#----------------------------------------------------------------------
+library(tidyverse)
+library(readr)
+library(readr)
+inflacion &lt;- c(99.31, 88.3,66,66.7,20.5,8.9,2.3,7.3,8.8,1.72,8.47,18.75,9.21,20.23,6.74,6.32,6.93,32.41,8.39,14.84,12.92,7.46,6.48,8.26,6.83,13.91,13.86,
+23.48,26.06,17.69,25.79,28.3,18.73,28.82,25.96,26.36,24.04,16.66,18.26,22.45,20.95,24,28.1,26.2,32.4,26.8,25.1,22.6,22.6,19.5,21.69,17.7,16.7,13.2,9.3,8.5,7.4,7.8,6.3,5.4,4.7,6.3,7.9,7.2,3.17,4,3.6,2.3,3.7,6.8,9,5.5,3.7,3.9,3.90,5.6,13.12,9.28)
+y=ts(inflacion, star=c(1946), end=c(2023), frequency=1)
+plot(y, type=&quot;l&quot;,
+main=&quot;Inflación Colombia  1946 a 2023&quot;,
+ylab=&quot;inflación acumulada anual (%)&quot;,
+xlab = &quot;meses&quot;, las=1,
+col=&quot;#ee964b&quot;, 
+lwd = 4)</code></pre>
+<img src="recurso32_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" />
+<center>
+<sub> Fuente : <a
+href="https://es.wikipedia.org/wiki/Anexo:Variaci%C3%B3n_de_la_inflaci%C3%B3n_de_Colombia_desde_1946">wikipedia</a>
+</sub>
+</center>
+<div id="retos-2" class="section level3 content-box-yellow">
+<h3><span style="color:#034A94"><strong>Retos</strong></span></h3>
+<p>Explora el código oculto</p>
+<pre class="r"><code>library(tidyverse)
+library(gganimate)
+
+# Datos de inflación
+inflacion &lt;- c(99.31, 88.3,66,66.7,20.5,8.9,2.3,7.3,8.8,1.72,8.47,18.75,9.21,20.23,6.74,6.32,6.93,32.41,8.39,14.84,12.92,7.46,6.48,8.26,6.83,13.91,13.86,23.48,26.06,17.69,25.79,28.3,18.73,28.82,25.96,26.36,24.04,16.66,18.26,22.45,20.95,24,28.1,26.2,32.4,26.8,25.1,22.6,22.6,19.5,21.69,17.7,16.7,13.2,9.3,8.5,7.4,7.8,6.3,5.4,4.7,6.3,7.9,7.2,3.17,4,3.6,2.3,3.7,6.8,9,5.5,3.7,3.9,3.90,5.6,13.12,9.28)
+year &lt;- seq(as.Date(&quot;1946-12-31&quot;), as.Date(&quot;2023-12-31&quot;), by = &quot;1 year&quot;)
+
+# Crear un data frame con los datos
+df &lt;- data.frame(year, inflacion)
+
+# Crear el gráfico animado con ggplot2 y gganimate
+ggplot(df, aes(x=year, y=inflacion)) + geom_point() + 
+geom_line() + theme_minimal() +transition_reveal(year)</code></pre>
+</div>
+<p><br/><br/><br/></p>
+<p>Aunque en los retos previos se ha empleado el paquete gráfico
+<code>ggplot2</code>, a continuación se hace una presentación de su
+sintaxis</p>
+<p><br/></p>
+</div>
+</div>
+<div id="ggplot2" class="section level1">
+<h1><span style="color:#034a94"><strong>ggplot2</strong></span></h1>
+<p><img src="img/ggplot2.png" width="10%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br/><br/></p>
+</div>
+<div id="gráficos-con-ggplot2" class="section level1">
+<h1><span style="color:#034a94"><strong>Gráficos con
+ggplot2</strong></span></h1>
+<p><br/></p>
+<p><img src="img/ge_themes.png" width="50%" style="display: block; margin: auto auto auto 0;" /></p>
+<p><br/><br/></p>
+<ul>
+<li><p><strong>Data</strong>: capa de los datos</p></li>
+<li><p><strong>Aesthetics</strong>: capa estética
+(<strong>aes</strong>), definimos las variables a utilizar en el
+gráfico</p></li>
+<li><p><strong>Geometries</strong>: capa de geometrías, se define el
+tipo de gráfica a realizar</p></li>
+<li><p><strong>Facets</strong>: capa de facetas, permite detallar la
+gráfica por categorías</p></li>
+<li><p><strong>Statistics</strong>: capa de estadística, permite agregar
+modelos</p></li>
+<li><p><strong>Coordinates</strong>: capa de coordenadas, permite
+ajustar las escalas de los ejes</p></li>
+<li><p><strong>Theme</strong>: capas de características del gráfico que
+no dependen de los datos</p></li>
+</ul>
+<p><br/><br/></p>
+<center>
+<sub> Fuente: <a
+href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">Visualizacion
+de datos con ggplot2</a> </sub>
+</center>
+<ol style="list-style-type: decimal">
+<li>Se declara la data y las variables</li>
+</ol>
+<pre class="r"><code>library(readr)
+library(ggplot2)
+ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas </code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Se determina el tipo de gráfico a realizar con las variables
+declaradas</li>
+</ol>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+geom_point()     # grafico de puntos</code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p><br/></p>
+<p>Para declarar el tipo de gráfico se emplean diferentes geometrías, en
+este caso se utiliza <code>geom_point()</code></p>
+<table>
+<colgroup>
+<col width="23%" />
+<col width="24%" />
+<col width="25%" />
+<col width="26%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left">geo_point()</td>
+<td align="left">geom_bar()</td>
+<td align="left">geom_col()</td>
+<td align="left">stat_count()</td>
+</tr>
+<tr class="even">
+<td align="left">geom_boxplot()</td>
+<td align="left">stat_boxplot()</td>
+<td align="left">geom_density()</td>
+<td align="left">stat_density()</td>
+</tr>
+<tr class="odd">
+<td align="left">geom_histogram()</td>
+<td align="left">geom_violin()</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+geom_point()+
+facet_wrap(~ sex)   # separacion por sexo</code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Se declaran las capas y las estadística a emplear</li>
+</ol>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+facet_wrap(~ categoria)+ 
+stat_smooth(method = &quot;loess&quot; , formula =y ~ x)  # ajuste de modelo </code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<ol start="4" style="list-style-type: decimal">
+<li>Se definen capas de coordenadas para dar límites a los ejes</li>
+</ol>
+<p><br/><br/></p>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+facet_wrap(~ categoria)+ 
+stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+        
+coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes </code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p><br/><br/></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Se adicionan titulos y etiquetes de los ejes</li>
+</ol>
+<pre class="r"><code>ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
+facet_wrap(~ categoria)+ 
+stat_smooth(method = &quot;loess&quot; , formula =y ~ x)+
+coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
+labs(title = &quot;Tiempos Carrera La Luz  2022&quot;,  y= &quot;Edad&quot;, x= &quot;Tiempo (min)&quot;)  # titulo y etiquetas </code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p><strong>Listo !!</strong></p>
+<p><br/><br/><br/></p>
+<div id="otros-gráficos-con-ggplot2" class="section level2">
+<h2><span style="color:#034a94"><strong>Otros gráficos con
+ggplot2</strong></span></h2>
+<pre class="r"><code># Selección del grupo - Hombres categoría Abierta
+data(&quot;CarreraLuz22&quot;)
+CarreraLuz22M = subset(CarreraLuz22, CarreraLuz22$sex==&quot;Hombre&quot;)
+CarreraLuz22_c2M = subset(CarreraLuz22M, CarreraLuz22M$categoria==&quot;2. Abierta&quot;)
+
+# Definición tamaño de letras
+Theme1 = theme(axis.title.x = element_text(size = 16),   
+axis.text.x = element_text(size = 10),
+axis.title.y = element_text(size = 16),
+# axis.text.y = element_blank(),
+axis.text = element_text( size = 10),
+legend.title = element_text(size = 10),
+legend.text = element_text(size = 10),  
+strip.text = element_text(size=10),
+title =element_text(size=10, face=&#39;bold&#39;) )# tamaño letra por grupos
+
+# Cálculo de los cuartiles
+cuartiles1=data.frame(prob=c(0.25,0.5,0.75),
+valor=quantile(CarreraLuz22_c2M$timerun,  c(0.25,0.5,0.75),na.rm = TRUE)/60 )
+q=cuartiles1$valor
+
+# Construcción de la gráfica
+p4=ggplot(CarreraLuz22_c2M, aes(x=timerun/60, y=&quot; &quot;)) +
+geom_jitter(color=&quot;#034A94&quot;, size=2, alpha=0.9)+ 
+scale_color_manual(values=&quot;#034A94&quot;) +
+geom_point(data=cuartiles1, aes(x=valor), color=&quot;#FF7F00&quot;,size=3)+
+geom_boxplot(alpha = 0.4)+
+labs(title = &quot; &quot;, y= &quot;&quot;,  x= &quot;tiempo (min)&quot;)+ 
+geom_text(size=6,data = NULL, x = q[1], y = 0.5, label = &quot;Q1&quot;,col=&quot;#FF7F00&quot;)+
+geom_text(size=6,data = NULL, x = q[2], y = 0.5, label = &quot;Q2&quot;,col=&quot;#FF7F00&quot;) +
+geom_text(size=6,data = NULL, x = q[3], y = 0.5, label = &quot;Q3&quot;,col=&quot;#FF7F00&quot;) +
+geom_text(size=6,data = NULL, x = 96, y = 0.5, label = &quot;atípicos&quot;,col=&quot;#FF7F00&quot;) +  
+Theme1
+p4 </code></pre>
+<p><img src="recurso32_files/figure-html/unnamed-chunk-18-1.png" width="1152" /></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
