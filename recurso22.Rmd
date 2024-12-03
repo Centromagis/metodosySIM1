@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE, comment = NA)
 
 # install.packages('gtools')
 # install.packages("TeachingSampling")
-#devtools::install_github("dgonxalex80/paqueteMETODOS")
+devtools::install_github("Centromagis/paqueteMETODOS")
 
 library(readr)
 library(tidyverse)
@@ -33,7 +33,7 @@ legend.title = element_text(size = 12),
 legend.text = element_text(size = 12),  
 strip.text = element_text(size=12),
 title =element_text(size=12, face='bold')
-)# tamaño letra por grupos
+)# Tamaño letra por grupos
 
 Theme2 = theme(
 axis.title.x = element_text(size = 26),
@@ -45,12 +45,12 @@ legend.title = element_text(size = 20),
 legend.text = element_text(size = 20),  
 strip.text = element_text(size=20),
 title =element_text(size=20, face='bold')
-)# tamaño letra por grupos
+)# Tamaño letra por grupos
 #-----------------------------------------------------
 data("CarreraLuz22")
 data("evaluacion")
 data("inflacionov22")
-load("~/Documentos/Javeriana/Ms Ciencia de Datos/repository/metodosySIM1/data/CarreraLu22F.rda")
+load("data/CarreraLu22F.rda")
 
 ```
 
@@ -178,7 +178,7 @@ Para ilustrar el concepto, pensemos en que participamos de una carrera. El perce
 
 Ahora supongamos que dos corredores que se llamarán `María` y `Carlos` participaron en la carrera. `María` ocupó un lugar correspondiente al percentil 40 ($P_{40}$)  y `Carlos` ocupó el puesto que corresponde al percentil 30 ($P_{30}$). Podríamos afirmar que a Carlos obtuvo un mejor resultado que María ?. La respuesta es que se debe tener más información para poderlo afirmar.
 
-El resultado depende del grupo en que participó cada uno de los corredores. Por ejemplo supongamos que :
+El resultado depende del grupo en que participó cada uno de los corredores. Por ejemplo supongamos que:
 
 `Carlos` tiene 55 años y pertenece por tanto a la categoría *Veteranos B* (corredores con edad entre los 50 y 60 años), mientras que `María` tiene 25 años y por tanto pertenece a la categoría *Abierta* (18 a 39 años).
 
@@ -264,7 +264,7 @@ Q1 - 1.5(Q3-Q1)                                              Q3 + 1.5(Q3-Q1)
 
 </br></br>
 
-Los valores que queden por fuera de los límites inferior y superior, se consideran como datos atípicos, que son objeto de estudio por separado para averiguar sus causas. 
+Los valores que queden por fuera de los límites inferior y superior, se consideran como datos atípicos, que son objeto de estudio por separado para averiguar sus causas.
 
 
 </br></br>
@@ -300,7 +300,7 @@ En economía y sociología, los percentiles son útiles para entender la distrib
 
 #### <span style="color:#034a94">**Segmentación de audiencia en marketing**</sapn>
 
-En marketing, se pueden utilizar percentiles para segmentar audiencias según el comportamiento del cliente. r 
+En marketing, se pueden utilizar percentiles para segmentar audiencias según el comportamiento del cliente. 
 
 </br>
 

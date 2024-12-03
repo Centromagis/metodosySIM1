@@ -174,7 +174,7 @@ data4
 
 En este caso se tienen las funciones :
 
-* `cbind()` Utilizada para combinar dos o mas conjuntos por columnas, agregando un conjunto de columnas. Es decir pegar dos datas que presentan el mismo orden de registros
+* `cbind()` Utilizada para combinar dos o mas conjuntos por columnas, agregando un conjunto de columnas. Es decir pegar dos datas que presentan el mismo orden de registros.
 
 
 <br/>

@@ -195,7 +195,7 @@ Si se estudia el peso promedio de los estudiantes en una carrera de la universid
 
 ## <span style="color:#034a94">**Variable**</span>  
 
-Corresponde a características tomadas de la unidad de análisis. A esta variable se asocia un número o una palabra, carater, de acuerdo a reglas predeterminadas.  Las variables se pueden clasificar según su origen, naturaleza o relación con otras variables :
+Corresponde a características tomadas de la unidad de análisis. A esta variable se asocia un número o una palabra, caracter, de acuerdo a reglas predeterminadas.  Las variables se pueden clasificar según su origen, naturaleza o relación con otras variables :
 
 <br/>
 
@@ -264,7 +264,7 @@ Las variables continuas pueden tomar cualquier valor real dentro de un intervalo
 
 * Estatura de los estudiantes de este curso, 
 * Temperaturas registradas al medio día durante el mes pasado, 
-* Peso de un telefono celular
+* Peso de un teléfono celular
 
 
 </br>
@@ -330,16 +330,16 @@ En las variables con escala de medición ordinal, sus valores tienen un orden na
 
 ### <span style="color:#034a94">**De intervalo**</span> 
 
-A esta escala pertenecen las variables numéricas donde el cero (0) es un valor arbitrario que  no implica la ausencia de una característica. Tambien se puede representar la variable con diferentes tipos de escala numérica. 
+A esta escala pertenecen las variables numéricas donde el cero (0) es un valor arbitrario que  no implica la ausencia de una característica. También se puede representar la variable con diferentes tipos de escala numérica. 
 
 </br>
 
 ### <span style="color:#FF7F00">**Ejemplo**</span>
 
-Temperatura de cero grados no indica que no hay temperatura, sólo es un valor que toma la variable para esa escala, que puede variar dependiento la escala que se esté usando (ºC, ºF o ºK)
+Temperatura de cero grados no indica que no hay temperatura, sólo es un valor que toma la variable para esa escala, que puede variar dependiendo la escala que se esté usando (ºC, ºF o ºK)
 
 
-Esta escala tambien utilizada en procesos en los que se mide variables como el estrés laboral. Para ello se utilizan valoración de a serie de preguntas por parte del individuo en escala ordinal. La suma de los resultados obtenidos constituye una medición que se traduce nuevamente a escala ordinal y de esta forma valorar el nivel de estrés que padece una persona. Este proceso se denomina operacionalización de una variable cualitativa ordinal en escala de intervalo.
+Esta escala también utilizada en procesos en los que se mide variables como el estrés laboral. Para ello se utilizan valoración de a serie de preguntas por parte del individuo en escala ordinal. La suma de los resultados obtenidos constituye una medición que se traduce nuevamente a escala ordinal y de esta forma valorar el nivel de estrés que padece una persona. Este proceso se denomina operacionalización de una variable cualitativa ordinal en escala de intervalo.
 
 
 </br></br>

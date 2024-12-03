@@ -18,7 +18,7 @@ library(tidyverse)
 library(DT)
 library(paqueteMETODOS)
 
-# Tamaños de letras graficos con ggplot2
+# Tamaños de letras gráficos con ggplot2
 Theme1 = theme(
 axis.title.x = element_text(size = 16),
 axis.text.x = element_text(size = 12),
@@ -124,7 +124,7 @@ describeBy(data5$Edad, data5$Grupo)
 ```
 </div>
 
-Este complemento al indicador de centro permite distinguir que se trata de dos grupos diferentes
+Este complemento al indicador de centro permite distinguir que se trata de dos grupos diferentes.
 
 
 </br></br></br>
@@ -198,7 +198,7 @@ Aunque la desviación estándar reduce el problema mencionado anteriormente debi
 <div class="content-box-gray">
 ### <span style="color:#686868">**Nota**</span> 
 
-Las propiedades definidas para la varianza no aplican para la desviación estándar dado que la raíz cuadrada no es una función lineal
+Las propiedades definidas para la varianza no aplican para la desviación estándar dado que la raíz cuadrada no es una función lineal.
 </div>
 
 <br/> <br/>
@@ -242,7 +242,7 @@ summarytools::descr(data6)
 
 </br>
 
-En este caso se obtienen valores diferentes para los dos grupos. El grupo 1 con un valor inferior a 20%, que indica homogeneidad y el grupo 2 con un valor superior que indica heterogeneidad
+En este caso se obtienen valores diferentes para los dos grupos. El grupo 1 con un valor inferior a 20%, que indica homogeneidad y el grupo 2 con un valor superior que indica heterogeneidad.
 
 
 

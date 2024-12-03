@@ -24,28 +24,28 @@ data("inflacionov22")
 
 </br></br>
 
-A continuación se presentan algunos de los parámetros para el manejo de gráficos
+A continuación se presentan algunos de los parámetros para el manejo de gráficos.
 
 
 </br>
 
-#  **Margenes de los gráficos**
+#  **Márgenes de los gráficos**
 
 </br>
 
 Es posible que se requiera aumentar los margenes de los gráfico con el propósito de que aparezcan las etiquetas completamente.
 
-A partir del siguiente gráfico se realizan algunos ajustes en cuanto sus pargenes y  tamaño de los textos
+A partir del siguiente gráfico se realizan algunos ajustes en cuanto sus márgenes y  tamaño de los textos.
 
 ```{r}
-# Grafico normal
+# Gráfico normal
 x=rnorm(100,100,20)
 plot(density(x))
 ```
 
 </br></br>
 
-### **margenes de la gráfica  c(bottom, left, top, right)**
+### **Márgenes de la gráfica  c(bottom, left, top, right)**
 
 ```{r}
 
@@ -56,8 +56,7 @@ plot(density(x))
 
 </br></br>
 
-###  **margenes de la gráfica**
-
+###  **Márgenes de la gráfica**
 ```{r}
 
 par(mai = c(1.5, 1.5, 1.5, 1.5))
@@ -70,7 +69,7 @@ plot(density(x))
  
  ### **Matriz de gráficos mfrow = c(2, 2)**
 
-Para presentar varios gráficos en una sola imagen se emplea el parámetro mfrow para indicar cuantas filas y columnas tendrá la figura
+Para presentar varios gráficos en una sola imagen se emplea el parámetro mfrow para indicar cuantas filas y columnas tendrá la figura.
 
 
 ```{r}
@@ -78,7 +77,7 @@ x=rnorm(100,100,20)
 y=rnorm(100,100,25)
 z=rbinom(100,4,0.30)
 t=1:100
-par(mfrow = c(2, 2) ) # definición de la matriz
+par(mfrow = c(2, 2) ) # Definición de la matriz
 
 plot(density(x))
 barplot(table(z))
@@ -88,12 +87,12 @@ plot(x,y)
 
 </br></br>
 
-### **margenes exteriores c(bottom, left, top, right)**
+### **Márgenes exteriores c(bottom, left, top, right)**
 
 ```{r}
 
-par(mfrow = c(2, 2),   # matriz de graficos 2x2
-    oma = c(3, 5, 2, 4) )  # margenes de la imagen
+par(mfrow = c(2, 2),   # Matriz de gráficos 2x2
+    oma = c(3, 5, 2, 4) )  # Márgenes de la imagen
 plot(density(x))
 barplot(table(z))
 hist(x)
@@ -109,10 +108,10 @@ plot(x,y)
 
 ```{r}
 x=rnorm(100,100,20)
-plot(density(x),cex.lab=.8,  # tamaño de etiqueta ejes
-                cex.axis=2, # tamaño escalas de los ejes 
-                cex.main=1.5, # tamaño del titulo
-                cex.sub=1)    # tamaño del subtitulo
+plot(density(x),cex.lab=.8,  # Tamaño de etiqueta ejes
+                cex.axis=2, # Tamaño escalas de los ejes 
+                cex.main=1.5, # Tamaño del titulo
+                cex.sub=1)    # Tamaño del subtitulo
 ```
 
 

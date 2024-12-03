@@ -32,14 +32,14 @@ str(CarreraLuz22)
 
 <br/>
 
-Inicialmente se examina la data con el fin de detectar datos faltantes
+Inicialmente se examina la data con el fin de detectar datos faltantes.
 
 
 ```{r}
 colSums(is.na(CarreraLuz22))
 ```
 
-Lo cual también se puede validar de manera gráfica 
+Lo cual también se puede validar de manera gráfica.
 
 <br/>
 
@@ -59,11 +59,11 @@ Se inicia con un análisis univariado, para lo cual se dividen las variables en 
 ### **Variables cuantitativas**
 
 
-Para el caso de las variables cualitativas utilizamos tablas y gráficos circulares o de torta para el caso de las variables cualitativas- nominales (sex, origen) y de barras en el caso de las variables - ordinales (categoría)
+Para el caso de las variables cualitativas utilizamos tablas y gráficos circulares o de torta para el caso de las variables cualitativas- nominales (sex, origen) y de barras en el caso de las variables - ordinales (categoría).
 
 
-* **sex** :sexo del participante : Hombre, Mujer
-* **origen** : ciudad de origen del participante
+* **sex** :Sexo del participante : Hombre, Mujer
+* **origen** : Ciudad de origen del participante
 * **categoría** :  1. Juvenil, 2. Abierta, 3. Veteranos A, 4. Veteranos B,  5. Veteranos C
 
 <br/>
@@ -75,7 +75,7 @@ attach(CarreraLuz22) # esta funcion permite nombrar las variables de manera inde
 summarytools::freq(sex, cumul = FALSE)
 ```
 
-El resultado indica que un 61.29% de los participantes eran hombres
+El resultado indica que un 61.29% de los participantes eran hombres.
 
 
 <br/>
@@ -100,7 +100,7 @@ labs(title="Distribución sexo participantes Carrera La Luz")
 
 <br/><br/>
 
-### **categoria**
+### **categoría**
 
 ```{r}
 summarytools::freq(categoria)
@@ -130,7 +130,7 @@ La representación gráfica, permite visualizar las diferencias entre las frecue
 
 ### **Variables cualitativas**
 
-En el caso de las variables cuantitativas se construye un resumen de indicadores y su representación gráfica puede ser un histograma, gráfico de densidad, diagrama de cajas, diagrama de puntos, diagrama de lineas
+En el caso de las variables cuantitativas se construye un resumen de indicadores y su representación gráfica puede ser un histograma, gráfico de densidad, diagrama de cajas, diagrama de puntos, diagrama de lineas.
 
 * **edad** : edad del participante 
 * **timerun** :tiempo de recorrido en segundos. Para una mejor interpretación pararemos esta variable a minutos, dividiendo por 60
@@ -151,8 +151,8 @@ El resumen de indicadores se puede dividir en cuatro partes:
 * **indicadores de centro**
 
 <pre>
-Mean     37.45    # media
-Median     36.00    # mediana
+Mean     37.45    # Media
+Median     36.00    # Mediana
 </pre>
 
 Los valores de media y mediana son similares, lo que indica posiblemente una forma simétrica. En este caso dado que la media es más conocida, se utiliza este indicador para describir la muestra.
@@ -165,12 +165,12 @@ En promedio los participantes tienen en promedio 37 años.
 * **indicadores de dispersión**
 
 <pre>
-Std.Dev     10.90     # desviación estandar
-IQR     14.00     # rango intercuartilico - Q3-Q1
-CV      0.29     # coeficiente de variación
+Std.Dev     10.90     # Desviación estándar
+IQR     14.00     # Rango intercuartílico - Q3-Q1
+CV      0.29     # Coeficiente de variación
 </pre>
 
-Estos valores dan una idea de la dispersión de los datos, es decir que tanto se parecen o se diferencian. La desviación estándar como también el rango (max-min) y el rango intercuartilico IQR, corresponde a valores útiles al realizar comparación de grupos.
+Estos valores dan una idea de la dispersión de los datos, es decir que tanto se parecen o se diferencian. La desviación estándar como también el rango (max-min) y el rango intercuartílico IQR, corresponde a valores útiles al realizar comparación de grupos.
 
 El coeficiente de variación en cambio permite comparar la magnitud de la desviación estándar en comparación con la media de la variable. En este caso (CV = 0.29) el indicador corresponde a un grupo heterogéneo.
 
@@ -181,9 +181,9 @@ El coeficiente de variación en cambio permite comparar la magnitud de la desvia
 
 
 <pre>
-Skewness      0.64    # sesgo
-SE.Skewness      0.06    # error estándar del sesgo
-Kurtosis      0.11    # curtosis
+Skewness      0.64    # Sesgo
+SE.Skewness      0.06    # Error estándar del sesgo
+Kurtosis      0.11    # Curtosis
 </pre>
 
 En cuanto al valor del indicador de sesgo (0.64), representa una leve simetría positiva y un valor de curtosis similar al estándar representado por la distribución normal estándar.
@@ -194,11 +194,11 @@ En cuanto al valor del indicador de sesgo (0.64), representa una leve simetría 
 * **indicadores de posición**
 
 <pre>
-Min     15.00     # mínimo
-Q1     30.00     # percentil 25
-Median     36.00     # percentil 50
-Q3     44.00     # percentil 75
-Max     76.00     # máximo
+Min     15.00     # Mínimo
+Q1     30.00     # Percentil 25
+Median     36.00     # Percentil 50
+Q3     44.00     # Percentil 75
+Max     76.00     # Máximo
 </pre>
 
 Los indicadores de posición nos ayudan a comparar un valor con estos indicadores de referencia. Por ejemplo un atleta con un valor de 35 minutos tienen una posición en el orden de llegada entre el 25% y el 50%, estando mas cercano al centro.
@@ -209,7 +209,7 @@ Los indicadores de posición nos ayudan a comparar un valor con estos indicadore
 En resumen se utilizan los indicadores para resumir los valores de una variable  aleatoria. Para el caso de la edad de los corredores podría decirse:
 
 
-Se presentaron 1922 atletas que tenían en promedio 37 años, conformando un grupo heterogéneo (CV 29%) y una distribución levemente asimetrica positiva.
+Se presentaron 1922 atletas que tenían en promedio 37 años, conformando un grupo heterogéneo (CV 29%) y una distribución levemente asimétrica positiva.
 
 
 
@@ -220,12 +220,12 @@ Se presentaron 1922 atletas que tenían en promedio 37 años, conformando un gru
 ggplot(CarreraLuz22, aes(x = edad)) +
 geom_histogram(binwidth = 5, fill = "#0EB0C6", color = "black", alpha = 0.7) +
 labs(title = "Distribución de la edad",
-x = "años",
+x = "Años",
 y = "Frecuencia")
 
 ```
 
-El histograma permite visualizar tanto distribución de la variable, como también el rango 
+El histograma permite visualizar tanto distribución de la variable, como también el rango.
 
 <br/><br/>
 
@@ -240,12 +240,12 @@ y = "Edad")
 
 ```
 
-El diagrama de cajas permite visualizar los datos atípicos (punto ubicados a la izquierda de la gráfica)
+El diagrama de cajas permite visualizar los datos atípicos (punto ubicados a la izquierda de la gráfica).
 
 
 <br/><br/>
 
-## **Analisis bivariado**
+## **Análisis bivariado**
 
 Después de realizar una análisis unidimensional, puede ser necesario realizar análisis por grupos de variables . En este caso se pueden presentar las siguientes combinaciones:
 

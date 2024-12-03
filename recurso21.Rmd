@@ -13,7 +13,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 
-#install.packages("devtools") # solo una vez
+#install.packages("devtools") # Solo una vez
 #devtools::install_github("dgonxalex80/paqueteMETODOS", force = TRUE)
 library(readr)
 library(tidyverse)
@@ -21,7 +21,7 @@ library(DT)
 library(paqueteMETODOS)
 
 data("CarreraLuz22")
-Cali <- readRDS("~/Documentos/Javeriana/Ms Ciencia de Datos/repository/metodosySIM1/data/Cali.RDS")
+Cali <- readRDS("data/Cali.RDS")
 ```
 
 <br/><br/>
@@ -38,7 +38,7 @@ data("vivienda_faltantes")
 table(is.na(vivienda_faltantes))
 ```
 
-Tambien es posible determinar si existen problemas de sistematización en los datos, como se presenta en la variable `ubicacion` de la base de datos `Cali` construida a partir de la información de Covid-19 ubicada en Datos abiertos. 
+También es posible determinar si existen problemas de sistematización en los datos, como se presenta en la variable `ubicacion` de la base de datos `Cali` construida a partir de la información de Covid-19 ubicada en Datos abiertos. 
 
 
 ```{r}
@@ -71,7 +71,7 @@ Las distribuciones de frecuencia o también llamadas tablas de frecuencia nos si
 </br>
 
 
-Para las variables cualitativas en escala nominal, las tabla posee 3 columnas :
+Para las variables cualitativas en escala nominal, las tabla posee 3 columnas:
 
 <div class="content-box-blue">
 
@@ -125,7 +125,7 @@ Fuente : [wikipedia](https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Co
 
 <br/>
 
-En ella se resalta la mayor participación de los países afiliados a la UEFA (13), los cuales representan un 41.9% del total de paises que participaron, segudo de la CFA y AFC cada uno con un 16.1% de participación.
+En ella se resalta la mayor participación de los países afiliados a la UEFA (13), los cuales representan un 41.9% del total de países que participaron, seguido de la CFA y AFC cada uno con un 16.1% de participación.
 
 
 
@@ -154,7 +154,7 @@ Otro caso correspondiente a las variables cualitativas en escala ordinal, para l
 ### <span style="color:#FF7F00">**Ejemplo**</span>
 
 <center>
-**Tabla 1.2** : Nivel de satisfacción usuarios aereolinea, servicio de alimentación/bebidas a 
+**Tabla 1.2** : Nivel de satisfacción usuarios aerolinea, servicio de alimentación/bebidas a 
 </center>
 
 ```{r, fig.align='center'}

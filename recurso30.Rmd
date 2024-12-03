@@ -15,12 +15,13 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE, comment = N
 
 library(tidyverse)
 
-# cargar paqueteMET
-# devtools::install_github("dgonxalex80/paqueteMETODOS") # descarga de paqueteMETODOS
-library(paqueteMETODOS)     # activar paqueteMETODOS
-data("CarreraLuz22")    # cargar la dataset
-data("evaluacion")      # cargar la dataset
-data("inflacion2022")   # carga la dataset
+# Cargar paqueteMET
+# devtools::install_github("Centromagis/paqueteMETODOS") # Descarga de paqueteMETODOS
+library(paqueteMETODOS)     # Activar paqueteMETODOS
+data("CarreraLuz22")    # Cargar la dataset
+data("evaluacion")      # Cargar la dataset
+# Carga la dataset
+load("data/inflacion2022.rda")
 inflacion2022[360,]=c(0,"2022-12",13.12, 2022,NA,12)
 
 #CarreraLuz22_c2M = subset(CarreraLuz22, CarreraLuz22M$categoria=="2. Abierta")
@@ -36,7 +37,7 @@ Algunas consideraciones
 
 <br/><br/>
 <center>
-**Tabla 1.5** Tipos de gráficos segun el tipo de variable y su tipo de escala
+**Tabla 1.5** Tipos de gráficos según el tipo de variable y su tipo de escala
 </center>
 
 <br/>

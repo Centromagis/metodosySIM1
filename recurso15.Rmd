@@ -38,7 +38,7 @@ data("rotacion")
 Una de las etapas importantes dentro del ciclo de datos corresponde a la transformación de las variables. Dentro de los procesos más importantes en este aspecto están :
 
 * Construcción de nuevas variables
-* Estantarización de variables
+* Estandarización de variables
 * Normalización de variables
 
 <br/>
@@ -51,8 +51,8 @@ library(dplyr)
 data(rotacion)
 set.seed(123)
 datos <- sample_n(rotacion, 1000)
-# variables <- c("Edad", "Antigüedad", "Antigüedad_Cargo", "Años_ultima_promoción", "Años_acargo_con_mismo_jefe")
-datos = datos[, c(2,18,21,22,23,24)] # se seleccionan variables de interes para facilitar su visualizacion
+# variables <- c("Edad", "Antigüedad", "Antigüedad_Cargo", "Años_ultima_promoción", "Años_a_cargo_con_mismo_jefe")
+datos = datos[, c(2,18,21,22,23,24)] # se seleccionan variables de interes para facilitar su visualización
 str(datos) # Muestra los datos originales
 ```
 
@@ -69,7 +69,7 @@ Es usual que se requiera construir variables a partir de las variables existente
 
 ### <span style="color:#FF7F00"> **Ejemplo** </span>
 
-Supongamos que se desea contruir un indicador de razón que involucre las variables Años de Experiencia y Antigüedad
+Supongamos que se desea contruir un indicador de razón que involucre las variables Años de Experiencia y Antigüedad.
 
 $$\text{Indicador} = \dfrac{\text{Antigüedad}}{\text{Años de Experiencia}}$$
 Este indicador podrá suministra información sobre si el empleado ha sido contratado con experiencia previa o si por el contrario se ha adquirido su experiencia en la empresa. 
@@ -129,7 +129,7 @@ La estandarización en el contexto de la limpieza y ajuste de datos en ciencia d
 
 ## <span style="color:#034a94"> **Normalización**</span>
 
-Esta transformación escala los valores de una variable a un rango específico, por defecto el rango es [0,1]. Se presenta cuando las variables no siguen una distribución normal, haciendo que las variable tengan el mismo rango. Tambien se conoce con el nombre de  **min-max scaling**.
+Esta transformación escala los valores de una variable a un rango específico, por defecto el rango es [0,1]. Se presenta cuando las variables no siguen una distribución normal, haciendo que las variable tengan el mismo rango. También se conoce con el nombre de  **min-max scaling**.
 
 <br/>
 
@@ -169,13 +169,13 @@ summarytools::descr(datos[,c(2,25,26)])
 <div class="content-box-gray">
 ### <span style="color:#686868"> **Nota** </span>
 
-En Ciencia de Datos puede ser necesario realizar transformación de las variables como la estandarización o la normalización dependiendo algunos requerimientos específicos del proceso de modelamiento algoritmos utilizados
+En Ciencia de Datos puede ser necesario realizar transformación de las variables como la estandarización o la normalización dependiendo algunos requerimientos específicos del proceso de modelamiento algoritmos utilizados.
 
 
 En el caso de algoritmos relacionados con aprendizaje automático, regresión lineal o en casos donde se requiera la comparación de los resultados, será necesario realizar procesos de estandarización (pasar a media cero y varianza uno).
 
 
-En el caso de algunos algoritmos de redes neuronales, puede ser necesario que los datos originales se distribuyan en el mismo rango o en el caso de mejorar la velocidad de convergencia de uno de los métodos de optimizan será necesario realizar normalización de las variables (una misma escala con el mismo rango) 
+En el caso de algunos algoritmos de redes neuronales, puede ser necesario que los datos originales se distribuyan en el mismo rango o en el caso de mejorar la velocidad de convergencia de uno de los métodos de optimizan será necesario realizar normalización de las variables (una misma escala con el mismo rango). 
 
 
 </div>

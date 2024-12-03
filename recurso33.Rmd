@@ -26,7 +26,7 @@ data("inflacionov22")
 
 ### <span style="color:#034a94">**Gráfico de radar**</span>
 
-Este tipo de gráfica tambien llamado gráfico de telaraña, permite comparar múltiples variables, permitiendo el análisis de información compleja.
+Este tipo de gráfica también llamado gráfico de telaraña, permite comparar múltiples variables, permitiendo el análisis de información compleja.
 
 
 
@@ -39,9 +39,9 @@ set.seed(1)
 
 x =c(2.744017, 3.726327, 3.162331, 2.424298, 2.725286)
 
-df <- data.frame(rbind(rep(4, 5), # limite superior de la escala
-rep(1, 5), #  limite inferior de la escala
-x))# genera una muestra de valores
+df <- data.frame(rbind(rep(4, 5), # Limite superior de la escala
+rep(1, 5), #  Limite inferior de la escala
+x)) # Genera una muestra de valores
 colnames(df) <- c("Satisfacción Amb",
 "Satisfacción Lab",
 "Rendimiento Lab",
@@ -52,7 +52,7 @@ colnames(df) <- c("Satisfacción Amb",
 radarchart(df,
 cglty = 1, cglcol = "gray",
 pcol = 4, plwd = 2,
-pfcol = rgb(0, 0.4, 1, 0.25)) # color del gráfico
+pfcol = rgb(0, 0.4, 1, 0.25)) # Color del gráfico
 ```
 
 
@@ -66,7 +66,7 @@ pfcol = rgb(0, 0.4, 1, 0.25)) # color del gráfico
 library(fmsb)
 
 library(fmsb)
-# matriz de datos
+# Matriz de datos
 x =c(2.744017, 3.726327, 3.162331, 2.424298, 2.725286,
 2.682540, 2.603175, 2.142857, 3.476190, 3.920635,
 3.679372, 2.751121, 3.136771, 2.451233, 2.816143)
@@ -83,7 +83,7 @@ colnames(df2) <- c("Satisfacción Amb",
 "Nivel educativo",
 "Equilibrio Trab-Vida")
 
-# colores de areas
+# Colores de áreas
 areas <- c(rgb(1, 0, 0, 0.25), rgb(0, 1, 0, 0.25), rgb(0, 0, 1, 0.25))
 
 radarchart(df2,
@@ -107,29 +107,31 @@ text.col = "grey25", pt.cex = 2)
 
 Este tipo de gráfico se emplea en variables categóricas con múltiples valores, facilitando su visualización.
 
-Tambien se emplea para representar el nivel alcanzado en un indicador por un grupo de variables
+También se emplea para representar el nivel alcanzado en un indicador por un grupo de variables.
 
 
 ```{r, warning=FALSE, message=FALSE, fig.align='center', fig.height=8, fig.width=10}
 
-# Import tidyverse to have access to dplyr and ggplot2
+# Cargar tidyverse para tener acceso a dplyr y ggplot2
 library(tidyverse)
 
-# Create a simple dummy data frame with columns "variable" and "value"
+
+# Crear un dataframe de datos de ejemplo sencillo con las columnas "variable" y "value"
+
 data <- data.frame(variable = c("Bachillerato", "Técnico", "Prefesional", "Magister", "Doctorado"),
 value = c(170, 282, 572, 398, 48 ))
 
 
-# Create grafico en coordenadas 
+# Crear gráfico en coordenadas 
 plot <- ggplot(data,aes(x = variable,y = value,
 fill = factor(variable))) +
 geom_col(width = 1, color = "white") +
-coord_polar() +                         # vonvierte en gráfico circular
-labs(x = "", y = "",title = "Nivel educativo",   # add titulo, subtitulo, nota
+coord_polar() +                         # Convierte en gráfico circular
+labs(x = "", y = "",title = "Nivel educativo",   # añade titulo, subtitulo, nota
 subtitle = " ", 
 caption = " " ) +
-theme_minimal() +                     # borra caracteristicas del grafico
-theme(                                # asigna caracteristicas
+theme_minimal() +                     # borra características del gráfico
+theme(                                # asigna características
 legend.position = "none",
 axis.title.x = element_blank(),
 axis.title.y = element_blank(),
@@ -155,7 +157,7 @@ plot # imprime grafico
 ### <span style="color:#034a94">**Nube de palabras**</span>
 
 
-Este tipo de representación visual se emplea en el análisis de texto (minería de texto), permitiendo detectar rápidamente las palabras más empleadas en un texto
+Este tipo de representación visual se emplea en el análisis de texto (minería de texto), permitiendo detectar rápidamente las palabras más empleadas en un texto.
 
 ```{r, warning=FALSE}
 library("wordcloud2")

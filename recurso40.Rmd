@@ -77,13 +77,13 @@ knitr::include_graphics("img/VRStudio.png")
 
 <br/><br/>
 
-1. Fuente (Source) : Ventana donde se trabajan los script  con código que se guardan para posterior utilización
-2. Consola (Console) : Ventana donde se pueden escribir comandos de manera directa
-3. Ambiente (Environment) : Ventana donde se pueden observar las variables y objetos creados
-4. Archivos (Files) : Ventana que muestra el directorio y los archivos en el que estamos trabajando
-5. Graficos (plots) : Ventana que presenta los gráficos construidos
-6. Paquetes (Packages) : Ventana que permite instalar los paquetes requeridos
-7. Ayudas (Help) : Ventana en la que podemos pedir ayuda sobre las sintaxis de funciones
+1. Fuente (Source) : Ventana donde se trabajan los script  con código que se guardan para posterior utilización.
+2. Consola (Console) : Ventana donde se pueden escribir comandos de manera directa.
+3. Ambiente (Environment) : Ventana donde se pueden observar las variables y objetos creados.
+4. Archivos (Files) : Ventana que muestra el directorio y los archivos en el que estamos trabajando.
+5. Gráficos (plots) : Ventana que presenta los gráficos construidos.
+6. Paquetes (Packages) : Ventana que permite instalar los paquetes requeridos.
+7. Ayudas (Help) : Ventana en la que podemos pedir ayuda sobre las sintaxis de funciones.
 
 
 <br/><br/>
@@ -110,7 +110,7 @@ Estos programas se insertan dentro de la configuración inicial al instalar post
 
 <br/>
 
-R cuenta con una ventana de ayudas que permite revisar las sintaxis y detalles de sus parámetros, al igual que ejemplos y artículos relacionados con las funciones consultadas
+R cuenta con una ventana de ayudas que permite revisar las sintaxis y detalles de sus parámetros, al igual que ejemplos y artículos relacionados con las funciones consultadas.
 
 Para ascender a las ayudas se puede consultar directamente en la venta Help  o desde la linea de la Consola:
 
@@ -124,5 +124,5 @@ help("lm")
 </pre>
 
 
-A continuación se realiza un resumen de las principales funciones empleadas en esta unidad
+A continuación se realiza un resumen de las principales funciones empleadas en esta unidad.
 

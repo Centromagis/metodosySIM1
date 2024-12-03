@@ -14,7 +14,7 @@
 
 <title> Ordenar y limpiar los datos</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -398,8 +398,8 @@ de los datos.</p>
 <li>Datos faltantes</li>
 <li>Estandarización</li>
 <li>Normalización</li>
-<li>Elinación de registros duplicados</li>
-<li>Verificación y enrequecimiento</li>
+<li>Eliminación de registros duplicados</li>
+<li>Verificación y enriquecimiento</li>
 <li>Exportación de los datos</li>
 </ul>
 <p></br></br></p>
@@ -422,8 +422,8 @@ base</li>
 <li>Agregar variables contenidas en dos bases</li>
 </ul>
 <p></br></br></p>
-<p>A contunuación se presentan algunos de estos temas que permiten
-tratar y dejar lista la base de datos de interes para iniciar el
+<p>A continuación se presentan algunos de estos temas que permiten
+tratar y dejar lista la base de datos de interés para iniciar el
 análisis de datos</p>
 <p></br></br></p>
 <div id="tratamiento-de-datos-faltantes" class="section level1">
@@ -431,12 +431,12 @@ análisis de datos</p>
 faltantes</strong></h1>
 <p>El tratamiento de datos faltantes es un aspecto crítico en Ciencia de
 Datos, ya que ellos pueden afectar de manera significativa la calidad y
-validez de los análisis y modelos que realicemos. Acontinuación se
+validez de los análisis y modelos que realicemos. A continuación se
 presentan algunas estrategias comunes para manejar los datos
 faltantes:</p>
 <p></br></p>
-<div id="eliminacion-de-los-registros-o-filas" class="section level3">
-<h3><span style="color:#034a94"><strong>1. Eliminacion de los registros
+<div id="eliminación-de-los-registros-o-filas" class="section level3">
+<h3><span style="color:#034a94"><strong>1. Eliminación de los registros
 o filas</strong></span></h3>
 <p>Si los <strong>datos faltantes</strong> son pocos en comparación con
 el tamaño total del conjunto de datos, una estrategia es eliminar los
@@ -490,7 +490,7 @@ spc_tbl_ [1,000 × 25] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 <p><br/></p>
 <p>Con la función <code>str()</code> se obtiene una visualización del
 tamaño de la base de datos, las variables que la conforman y el tipo de
-variables y una muesrta de los primeros valores.</p>
+variables y una muestra de los primeros valores.</p>
 <p>Ahora para visualizar que variables y con que frecuencia se presentan
 los datos faltantes o <code>NA</code> utilizamos el siguiente código</p>
 <p><br/></p>
@@ -535,7 +535,7 @@ library(naniar)
 gg_miss_var(datosNA) # grafico de datos faltantes</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>En esta gráfica podemos visualizar que las viables : Viaje de
-Negocio, Estado Civil, Rotacion, Genero, Departamento y Horas Extras
+Negocio, Estado Civil, Rotación, Genero, Departamento y Horas Extras
 presentan datos faltantes. Para ello se utiliza la función
 <code>gg_miss_var(datosNA)</code></p>
 <p></br></br></p>
@@ -544,12 +544,12 @@ es utilizando la función
 <code>md.pattern(datosNA, rotate.names = TRUE)</code> del paquete
 <code>mice</code></p>
 <pre class="r"><code># install.packages(&quot;VIM&quot;)
-VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)  # graficos de datos faltantes</code></pre>
+VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)  # gráficos de datos faltantes</code></pre>
 <p><img src="recurso13_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<p>En este caso se observa una primera fila que represnta los registros
-tienen informaciçon completa (sin datos faltantes). Las filas restantes
+<p>En este caso se observa una primera fila que representa los registros
+tienen información completa (sin datos faltantes). Las filas restantes
 donde aparecen cuadrados en rojo, representan los datos faltantes para
-las variables Viaje de Negocio, Estado Civil, Rotacion, Genero,
+las variables Viaje de Negocio, Estado Civil, Rotación, Genero,
 Departamento y Horas Extras .</p>
 <p>Detectados la proporción de datos faltantes procederemos como una
 primera estrategia a eliminarlos por completo</p>
@@ -564,7 +564,7 @@ registros contenidos en la base de datos que contenga datos faltantes
 <li><strong>Verifique que se han eliminado los datos
 faltantes</strong></li>
 </ul>
-<pre class="r"><code># install.packages(&quot;VIM&quot;)
+<pre class="r"><code>#install.packages(&quot;VIM&quot;)
 datosSINA &lt;- na.omit(datosNA)  # elimina todos los valores con  NA
 VIM::aggr(datosSINA, cex.axis = 0.4, cex.lab= 0.8)
 cat(&quot;dimensión dataSINA : &quot;, dim(datosSINA))</code></pre>
@@ -585,7 +585,8 @@ imputados ni eliminados. En lugar de eso, puedes considerar tratar los
 datos faltantes como una categoría adicional en el análisis o modelo
 (faltante) .</p>
 <p></br></p>
-<pre class="r"><code>datosNA &lt;- rotacionNA
+<pre class="r"><code>#library(VIM)
+datosNA &lt;- rotacionNA
 datosNA$Otro_motivo &lt;- 0
 datosNA$faltante[is.na(datosNA$`Viaje de Negocios`)] &lt;- 1 
 VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)</code></pre>
@@ -606,7 +607,7 @@ cambiando los datos faltantes por :</p>
 <li>la media</li>
 <li>mediana</li>
 <li>por el valor de un registro completo semejante al del dato faltante
-- tecnicas avanzadas de imputación -</li>
+- técnicas avanzadas de imputación -</li>
 </ul>
 <p></br></br></p>
 <div id="ejemplo-1" class="section level3">
@@ -616,11 +617,11 @@ cambiando los datos faltantes por :</p>
 <h3><span style="color:#686868"><strong>Caso imputación por
 cero</strong></span></h3>
 <p>En el caso de la data <code>rotacionNA</code>, es posible que los
-empleados al ser interrogados, entendieron que no debian responder la
+empleados al ser interrogados, entendieron que no debían responder la
 pregunta: <strong>Horas Extras</strong>, cuando no trabajan horas por
 fuera de su jornada laboral.</p>
 <p>En otros casos es posible que se trate de un dato faltante real -no
-respuesta - y se deba reeplazar por un valor que lo represente.</p>
+respuesta - y se deba reemplazar por un valor que lo represente.</p>
 <p>El caso de reemplazar los <code>NA</code> por <strong>cero</strong>
 en la variable <code>Horas_Extra</code>, se procede la siguiente
 forma:</p>
@@ -651,8 +652,7 @@ media Años_Experiencia :  12
 <pre class="r"><code>datosNA &lt;- rotacionNA
 
 # Calcula la media de la variable &quot;Años_Experiencia&quot;
-media_Años_Experiencia &lt;- mean(datosNA$Años_Experiencia, na.rm = TRUE) %&gt;%
-                    round(,0)
+media_Años_Experiencia &lt;- round(mean(datosNA$Años_Experiencia, na.rm = TRUE) ,0)
 
 datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] &lt;- media_Años_Experiencia
 VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)</code></pre>
@@ -674,8 +674,7 @@ mediana</strong></span></h4>
 mediana se asigna este valor de la siguiente manera:</p>
 <pre class="r"><code>datosNA &lt;- rotacionNA
 # Calcula la mediana de la variable &quot;Años_Experiencia&quot;
-mediana_Años_Experiencia &lt;- median(datosNA$Años_Experiencia, na.rm = TRUE) %&gt;%
-                    round(,0)
+mediana_Años_Experiencia &lt;- round(median(datosNA$Años_Experiencia, na.rm = TRUE),0)
 
 datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] &lt;- mediana_Años_Experiencia
 VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)</code></pre>
@@ -706,7 +705,7 @@ avanzadas</strong></span></h3>
 <p>Los valores faltantes pueden ser reemplazados por valores obtenidos a
 a partir modelos, donde se construyen para estimar los valores faltantes
 de manera predictiva.</p>
-<p>Existen métodos Aavanzados para imputar datos faltantes, como la
+<p>Existen métodos avanzados para imputar datos faltantes, como la
 imputación múltiple (multiple imputation) y la imputación basada en
 modelos de aprendizaje automático. Estos enfoques generan múltiples
 conjuntos de datos imputados y tienen en cuenta la incertidumbre

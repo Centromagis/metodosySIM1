@@ -14,7 +14,7 @@
 
 <title> Indicadores de dispersión</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -442,6 +442,13 @@ p5=ggplot(data5, aes(x=Edad, y=Grupo, color=Grupo))+
 geom_jitter(size=2, alpha=0.9) +
 scale_fill_manual(values =c(&quot;Grupo 1&quot;= &quot;#FF7F00&quot;, &quot;Grupo 2&quot;= &quot;#0EB0C6&quot;)) + Theme1
 p5</code></pre>
+<pre><code>Warning: No shared levels found
+between `names(values)` of
+the manual scale and the
+data&#39;s fill values.</code></pre>
+<pre><code>Warning in grid.Call.graphics(C_points, x$x, x$y, x$pch, x$size):
+semi-transparencia no esta soportado en este dispositivo: reportado solo una
+vez por pagina</code></pre>
 <img src="recurso24_files/figure-html/unnamed-chunk-1-1.png" width="960" style="display: block; margin: auto;" />
 <center>
 <strong>Figura 1.11</strong> Edad de los atletas por grupo <br/> <sub>
@@ -497,7 +504,7 @@ Grupo = rep(c(&quot;Grupo 1&quot;, &quot;Grupo 2&quot;), each=30) )
 describeBy(data5$Edad, data5$Grupo)</code></pre>
 </div>
 <p>Este complemento al indicador de centro permite distinguir que se
-trata de dos grupos diferentes</p>
+trata de dos grupos diferentes.</p>
 <p></br></br></br></p>
 </div>
 <div id="varianza" class="section level2">
@@ -576,7 +583,7 @@ años<span class="math inline">\(^2\)</span></td>
 años<span class="math inline">\(^2\)</span></td>
 </tr>
 <tr class="odd">
-<td align="left"><span class="math inline">\(s_{1} = 4.16\)</span>
+<td align="left"><span class="math inline">\(s_{1}  = 4.16\)</span>
 años</td>
 <td align="left"><span class="math inline">\(s_{2} = 10.81\)</span>
 años</td>
@@ -598,7 +605,7 @@ medias sean diferentes es difícil poder realizar las comparaciones.</p>
 <h3><span style="color:#686868"><strong>Nota</strong></span></h3>
 <p>Las propiedades definidas para la varianza no aplican para la
 desviación estándar dado que la raíz cuadrada no es una función
-lineal</p>
+lineal.</p>
 </div>
 <p><br/> <br/></p>
 </div>
@@ -637,7 +644,8 @@ años</td>
 años</td>
 </tr>
 <tr class="even">
-<td align="left"><span class="math inline">\(CV_{1} = 15\)</span> %</td>
+<td align="left"><span class="math inline">\(CV_{1}  = 15\)</span>
+%</td>
 <td align="left"><span class="math inline">\(CV_{2} = 39\)</span> %</td>
 </tr>
 <tr class="odd">
@@ -661,7 +669,7 @@ summarytools::descr(data6)</code></pre>
 <p></br></p>
 <p>En este caso se obtienen valores diferentes para los dos grupos. El
 grupo 1 con un valor inferior a 20%, que indica homogeneidad y el grupo
-2 con un valor superior que indica heterogeneidad</p>
+2 con un valor superior que indica heterogeneidad.</p>
 </div>
 
 

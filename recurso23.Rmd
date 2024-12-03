@@ -18,7 +18,7 @@ library(tidyverse)
 library(DT)
 library(paqueteMETODOS)
 
-# Tamaños de letras graficos con ggplot2
+# Tamaños de letras gráficos con ggplot2
 Theme1 = theme(
 axis.title.x = element_text(size = 16),
 axis.text.x = element_text(size = 12),
@@ -35,7 +35,7 @@ title =element_text(size=12, face='bold')
 data("CarreraLuz22")
 data("evaluacion")
 data("inflacionov22")
-load("~/Documentos/Javeriana/Ms Ciencia de Datos/repository/metodosySIM1/data/CarreraLu22_c1F.rda")
+load("data/CarreraLu22_c1F.rda")
 ```
 
 </br>

@@ -27,13 +27,13 @@ A manera de introducción a  continuación se relacionan algunas ayudas para la 
 
 | Objeto      | tipos                                          | varios tipos objeto                       |
 |:------------|:-----------------------------------------------|:------------------------------------------|
-|  vector     | numéricos, caracter, complejo, lógico          | No                                        |
-|  factor     | numérico, caracter                             | No                                        |
-|  arreglo    | numéricos, caracter, complejo, lógico          | No                                        |
-|  matriz     | numéricos, caracter, complejo, lógico          | No                                        |
-|  data.frame | numéricos, caracter, complejo, lógico          | Si                                        |
-|  ts         | numéricos, caracter, complejo, lógico          | Si                                        |
-|  lista      | numéricos, caracter, complejo, lógico, función, expresión  | Si                            |
+|  vector     | numéricos, carácter, complejo, lógico          | No                                        |
+|  factor     | numérico, carácter                             | No                                        |
+|  arreglo    | numéricos, carácter, complejo, lógico          | No                                        |
+|  matriz     | numéricos, carácter, complejo, lógico          | No                                        |
+|  data.frame | numéricos, carácter, complejo, lógico          | Si                                        |
+|  ts         | numéricos, carácter, complejo, lógico          | Si                                        |
+|  lista      | numéricos, carácter, complejo, lógico, función, expresión  | Si                            |
 
 <center>
 <sub>
@@ -145,7 +145,7 @@ class(df)
 
 ### **ts**  
 
-objeto de series temporales,utilizado para representar datos secuenciales en el tiempo.
+Objeto de series temporales,utilizado para representar datos secuenciales en el tiempo.
 
 <pre>
 x = 1:24
@@ -165,7 +165,7 @@ class(t)
 
 <br><br>
 
-### **Lista**
+### **lista**
 
 Colección ordenada y flexible que puede contener elementos de diferentes tipos.
 

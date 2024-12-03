@@ -22,6 +22,7 @@ library(TeachingSampling)
 library(readr)
 library(paqueteMETODOS)
 library(tidyverse)
+library(VIM)
 
 c1="#FF7F00"
 c2="#034A94"
@@ -57,8 +58,8 @@ Este ciclo comprende :
 * Datos faltantes
 * Estandarización
 * Normalización
-* Elinación de registros duplicados
-* Verificación y enrequecimiento
+* Eliminación de registros duplicados
+* Verificación y enriquecimiento
 * Exportación de los datos
 
 </br></br>
@@ -76,18 +77,18 @@ Al importar una base de datos que está conformada por una matriz con $n$ filas 
 
 </br></br>
 
-A contunuación se presentan algunos de estos temas que permiten tratar y dejar lista la base de datos de interes para iniciar el análisis de datos
+A continuación se presentan algunos de estos temas que permiten tratar y dejar lista la base de datos de interés para iniciar el análisis de datos
 
 </br></br>
 
 # <span style="color:#034a94">**Tratamiento de datos faltantes**
 
 
-El tratamiento de datos faltantes es un aspecto crítico en Ciencia de Datos, ya que ellos pueden afectar de manera significativa la calidad y validez de los análisis y modelos que realicemos. Acontinuación se presentan algunas estrategias comunes para manejar los datos faltantes:
+El tratamiento de datos faltantes es un aspecto crítico en Ciencia de Datos, ya que ellos pueden afectar de manera significativa la calidad y validez de los análisis y modelos que realicemos. A continuación se presentan algunas estrategias comunes para manejar los datos faltantes:
 
 </br>
 
-### <span style="color:#034a94">**1. Eliminacion de los registros  o filas**</span>
+### <span style="color:#034a94">**1. Eliminación de los registros  o filas**</span>
 
 Si los **datos faltantes** son pocos en comparación con el tamaño total del conjunto de datos, una estrategia es eliminar los registros o filas que contienen datos faltantes. Sin embargo, esta estrategia puede llevar a una pérdida de información si los datos faltantes son sistemáticos o si se eliminan muchas observaciones en comparación con el tamaño de la base de datos.
 
@@ -140,7 +141,7 @@ spc_tbl_ [1,000 × 25] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
 
 <br/>
 
-Con la función  `str()`  se obtiene una visualización del tamaño de la base de datos, las variables que la conforman y el tipo de variables y una muesrta de los primeros valores.
+Con la función  `str()`  se obtiene una visualización del tamaño de la base de datos, las variables que la conforman y el tipo de variables y una muestra de los primeros valores.
 
 Ahora para visualizar que variables y con que frecuencia se presentan los datos faltantes o `NA` utilizamos el siguiente código
 
@@ -172,7 +173,7 @@ gg_miss_var(datosNA) # grafico de datos faltantes
 ```
 
 
-En esta gráfica podemos visualizar que las viables : Viaje de Negocio, Estado Civil, Rotacion, Genero, Departamento y Horas Extras presentan datos faltantes. Para ello se utiliza la función  `gg_miss_var(datosNA)`
+En esta gráfica podemos visualizar que las viables : Viaje de Negocio, Estado Civil, Rotación, Genero, Departamento y Horas Extras presentan datos faltantes. Para ello se utiliza la función  `gg_miss_var(datosNA)`
 
 </br></br>
 
@@ -182,11 +183,11 @@ Otra forma de detectar y representar gráficamente los datos faltantes es utiliz
 
 ```{r}
 # install.packages("VIM")
-VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)  # graficos de datos faltantes
+VIM::aggr(datosNA, cex.axis = 0.5, cex.lab= 0.8)  # gráficos de datos faltantes
 ```
 
 
-En este caso se observa una primera fila que represnta los registros tienen informaciçon completa (sin datos faltantes). Las filas restantes donde aparecen cuadrados en rojo, representan los datos faltantes para las variables Viaje de Negocio, Estado Civil, Rotacion, Genero, Departamento y Horas Extras .
+En este caso se observa una primera fila que representa los registros tienen información completa (sin datos faltantes). Las filas restantes donde aparecen cuadrados en rojo, representan los datos faltantes para las variables Viaje de Negocio, Estado Civil, Rotación, Genero, Departamento y Horas Extras .
 
 Detectados la proporción de datos faltantes procederemos como una primera estrategia a eliminarlos por completo
 
@@ -203,7 +204,7 @@ La función : `na.omit()`  , permite elimitar todos los registros contenidos en 
 
 
 ```{r, eval=FALSE}
-# install.packages("VIM")
+#install.packages("VIM")
 datosSINA <- na.omit(datosNA)  # elimina todos los valores con  NA
 VIM::aggr(datosSINA, cex.axis = 0.4, cex.lab= 0.8)
 cat("dimensión dataSINA : ", dim(datosSINA))
@@ -225,6 +226,7 @@ los datos faltantes pueden tener un significado propio y no deben ser imputados 
 
 
 ```{r}
+#library(VIM)
 datosNA <- rotacionNA
 datosNA$Otro_motivo <- 0
 datosNA$faltante[is.na(datosNA$`Viaje de Negocios`)] <- 1 
@@ -243,7 +245,7 @@ Para realizar este procedimiento se tienen varias alternativas, cambiando los da
 * cero
 * la media
 * mediana
-* por el valor de un registro completo semejante al del dato faltante - tecnicas avanzadas de imputación -
+* por el valor de un registro completo semejante al del dato faltante - técnicas avanzadas de imputación -
  
 </br></br>
 
@@ -251,9 +253,9 @@ Para realizar este procedimiento se tienen varias alternativas, cambiando los da
 
 ###  <span style="color:#686868">**Caso imputación por cero**</span>
 
-En el caso de la data `rotacionNA`, es posible que los  empleados  al ser interrogados, entendieron que no debian responder la pregunta: **Horas Extras**, cuando no trabajan horas por fuera de su jornada laboral. 
+En el caso de la data `rotacionNA`, es posible que los  empleados  al ser interrogados, entendieron que no debían responder la pregunta: **Horas Extras**, cuando no trabajan horas por fuera de su jornada laboral. 
 
-En otros casos es posible que se trate de un dato faltante real -no respuesta - y se deba reeplazar por un valor que lo represente. 
+En otros casos es posible que se trate de un dato faltante real -no respuesta - y se deba reemplazar por un valor que lo represente. 
 
 El caso de reemplazar los  `NA` por **cero** en la variable `Horas_Extra`,  se procede la siguiente forma:
 
@@ -287,8 +289,7 @@ media Años_Experiencia :  12
 datosNA <- rotacionNA
 
 # Calcula la media de la variable "Años_Experiencia"
-media_Años_Experiencia <- mean(datosNA$Años_Experiencia, na.rm = TRUE) %>%
-                    round(,0)
+media_Años_Experiencia <- round(mean(datosNA$Años_Experiencia, na.rm = TRUE) ,0)
 
 datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] <- media_Años_Experiencia
 VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)
@@ -315,8 +316,7 @@ En el caso de reemplazar el NA por el valor correspondiente a la mediana se asig
 ```{r, message=FALSE, warning=FALSE}
 datosNA <- rotacionNA
 # Calcula la mediana de la variable "Años_Experiencia"
-mediana_Años_Experiencia <- median(datosNA$Años_Experiencia, na.rm = TRUE) %>%
-                    round(,0)
+mediana_Años_Experiencia <- round(median(datosNA$Años_Experiencia, na.rm = TRUE),0)
 
 datosNA$Años_Experiencia[is.na(datosNA$Años_Experiencia)] <- mediana_Años_Experiencia
 VIM::aggr(datosNA, cex.axis = 0.4, cex.lab= 0.8)
@@ -349,7 +349,7 @@ cat("moda Estado_Civil : ", moda_Estado_Civil)
 
 Los valores faltantes pueden ser reemplazados por valores obtenidos a a partir modelos, donde se construyen para estimar los valores faltantes de manera predictiva.
 
-Existen métodos Aavanzados para imputar datos faltantes, como la imputación múltiple (multiple imputation) y la imputación basada en modelos de aprendizaje automático. Estos enfoques generan múltiples conjuntos de datos imputados y tienen en cuenta la incertidumbre asociada con la imputación. Los cuales serán tratado mas adelante.
+Existen métodos avanzados para imputar datos faltantes, como la imputación múltiple (multiple imputation) y la imputación basada en modelos de aprendizaje automático. Estos enfoques generan múltiples conjuntos de datos imputados y tienen en cuenta la incertidumbre asociada con la imputación. Los cuales serán tratado mas adelante.
 
 </br>
 

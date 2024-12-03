@@ -14,7 +14,7 @@
 
 <title> Visualización de variables multivariadas</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -34,13 +34,14 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet" />
 <script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
 <link href="site_libs/wordcloud2-0.0.1/wordcloud.css" rel="stylesheet" />
 <script src="site_libs/wordcloud2-0.0.1/wordcloud2-all.js"></script>
 <script src="site_libs/wordcloud2-0.0.1/hover.js"></script>
 <script src="site_libs/wordcloud2-binding-0.2.1/wordcloud2.js"></script>
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -393,7 +394,7 @@ $(document).ready(function () {
 <div id="gráfico-de-radar" class="section level3">
 <h3><span style="color:#034a94"><strong>Gráfico de
 radar</strong></span></h3>
-<p>Este tipo de gráfica tambien llamado gráfico de telaraña, permite
+<p>Este tipo de gráfica también llamado gráfico de telaraña, permite
 comparar múltiples variables, permitiendo el análisis de información
 compleja.</p>
 <pre class="r"><code># install.packages(&quot;fmsb&quot;)
@@ -403,9 +404,9 @@ set.seed(1)
 
 x =c(2.744017, 3.726327, 3.162331, 2.424298, 2.725286)
 
-df &lt;- data.frame(rbind(rep(4, 5), # limite superior de la escala
-rep(1, 5), #  limite inferior de la escala
-x))# genera una muestra de valores
+df &lt;- data.frame(rbind(rep(4, 5), # Limite superior de la escala
+rep(1, 5), #  Limite inferior de la escala
+x)) # Genera una muestra de valores
 colnames(df) &lt;- c(&quot;Satisfacción Amb&quot;,
 &quot;Satisfacción Lab&quot;,
 &quot;Rendimiento Lab&quot;,
@@ -416,14 +417,14 @@ colnames(df) &lt;- c(&quot;Satisfacción Amb&quot;,
 radarchart(df,
 cglty = 1, cglcol = &quot;gray&quot;,
 pcol = 4, plwd = 2,
-pfcol = rgb(0, 0.4, 1, 0.25)) # color del gráfico</code></pre>
+pfcol = rgb(0, 0.4, 1, 0.25)) # Color del gráfico</code></pre>
 <p><img src="recurso33_files/figure-html/unnamed-chunk-1-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p></br></p>
 <pre class="r"><code># install.packages(&quot;fmsb&quot;)
 library(fmsb)
 
 library(fmsb)
-# matriz de datos
+# Matriz de datos
 x =c(2.744017, 3.726327, 3.162331, 2.424298, 2.725286,
 2.682540, 2.603175, 2.142857, 3.476190, 3.920635,
 3.679372, 2.751121, 3.136771, 2.451233, 2.816143)
@@ -440,7 +441,7 @@ colnames(df2) &lt;- c(&quot;Satisfacción Amb&quot;,
 &quot;Nivel educativo&quot;,
 &quot;Equilibrio Trab-Vida&quot;)
 
-# colores de areas
+# Colores de áreas
 areas &lt;- c(rgb(1, 0, 0, 0.25), rgb(0, 1, 0, 0.25), rgb(0, 0, 1, 0.25))
 
 radarchart(df2,
@@ -462,26 +463,28 @@ text.col = &quot;grey25&quot;, pt.cex = 2)</code></pre>
 polar</strong></span></h3>
 <p>Este tipo de gráfico se emplea en variables categóricas con múltiples
 valores, facilitando su visualización.</p>
-<p>Tambien se emplea para representar el nivel alcanzado en un indicador
-por un grupo de variables</p>
-<pre class="r"><code># Import tidyverse to have access to dplyr and ggplot2
+<p>También se emplea para representar el nivel alcanzado en un indicador
+por un grupo de variables.</p>
+<pre class="r"><code># Cargar tidyverse para tener acceso a dplyr y ggplot2
 library(tidyverse)
 
-# Create a simple dummy data frame with columns &quot;variable&quot; and &quot;value&quot;
+
+# Crear un dataframe de datos de ejemplo sencillo con las columnas &quot;variable&quot; y &quot;value&quot;
+
 data &lt;- data.frame(variable = c(&quot;Bachillerato&quot;, &quot;Técnico&quot;, &quot;Prefesional&quot;, &quot;Magister&quot;, &quot;Doctorado&quot;),
 value = c(170, 282, 572, 398, 48 ))
 
 
-# Create grafico en coordenadas 
+# Crear gráfico en coordenadas 
 plot &lt;- ggplot(data,aes(x = variable,y = value,
 fill = factor(variable))) +
 geom_col(width = 1, color = &quot;white&quot;) +
-coord_polar() +                         # vonvierte en gráfico circular
-labs(x = &quot;&quot;, y = &quot;&quot;,title = &quot;Nivel educativo&quot;,   # add titulo, subtitulo, nota
+coord_polar() +                         # Convierte en gráfico circular
+labs(x = &quot;&quot;, y = &quot;&quot;,title = &quot;Nivel educativo&quot;,   # añade titulo, subtitulo, nota
 subtitle = &quot; &quot;, 
 caption = &quot; &quot; ) +
-theme_minimal() +                     # borra caracteristicas del grafico
-theme(                                # asigna caracteristicas
+theme_minimal() +                     # borra características del gráfico
+theme(                                # asigna características
 legend.position = &quot;none&quot;,
 axis.title.x = element_blank(),
 axis.title.y = element_blank(),
@@ -504,7 +507,7 @@ plot # imprime grafico</code></pre>
 palabras</strong></span></h3>
 <p>Este tipo de representación visual se emplea en el análisis de texto
 (minería de texto), permitiendo detectar rápidamente las palabras más
-empleadas en un texto</p>
+empleadas en un texto.</p>
 <pre class="r"><code>library(&quot;wordcloud2&quot;)
 
 palabras=c(&quot;MODELO  &quot;,&quot;REGRESIÓN  &quot;,&quot;LINEAL  &quot;,&quot;CORRELACIÓN  &quot;,&quot;PARÁMETRO  &quot;,&quot;ESTIMADOR  &quot;,&quot;NORMALIDAD  &quot;,&quot;HETEROSCEDASTICIDAD  &quot;,&quot;MULTICOLINEALIDAD  &quot;,&quot;ERRORES  &quot;,&quot;RESIDUALES  &quot;,&quot;BETAS  &quot;,&quot;MÍNIMOS CUADRADOS  &quot;,&quot;COEFICIENTE DE PEARSON  &quot;,&quot;COEFICIENTE DE SPERARMAN  &quot;,&quot;MATRIZ  &quot;, &quot;VECTOR  &quot;,&quot;COMBINACIÓN LINEAL  &quot;, &quot;MATRIZ CUADRADA  &quot;,&quot;MATRIZ SINGULAR  &quot;,&quot;MATRIZ IDENTICA  &quot;,   &quot;MATRIZ TRANSPUESTA  &quot;,&quot;MATRIZ INVERSA  &quot;,&quot;MATRIZ DE VARIANZAS COVARIANZAS  &quot;,&quot;VARIANZA  &quot;,&quot;VALOR ESPERADO  &quot;,&quot;R &quot;,&quot;ECUACIONES NORMALES  &quot;,&quot;INSESGADO  &quot;,&quot;EFICIENTE  &quot;,&quot;CONSISTENTE  &quot;,&quot;ROBUSTO  &quot;,&quot;INDEPENDIENTES  &quot;,&quot;VARIANZA CONSTANTE  &quot;,&quot;SHAPIRO-WILK  &quot;,&quot;KOLMOGOROV SMIRNOV  &quot;,&quot;GOLDFELD–QUANDT  &quot;,&quot;DURBIN–WATSON  &quot;,&quot;T-STUDENT  &quot;,&quot;CHI-CUADRADO  &quot;,&quot;F  &quot;,&quot;NIVEL DE SIGNIFICANCIA  &quot;,&quot;INTERVALO DE CONFIANZA  &quot;,&quot;PRUEBA DE HIPOTESIS  &quot;,&quot;ANOVA  &quot;,&quot;SUMA DE CUADRADOS  &quot;,&quot;GRADOS DE LIBERTAD  &quot;,&quot;MODELO NULO  &quot;,&quot;ESTADÍSTICO DE PRUEBA  &quot;,&quot;VALOR-P  &quot;,&quot;BONDAD DE AJUSTE  &quot;,&quot;AIC  &quot;,&quot;R2  &quot;,&quot;BIC  &quot;,&quot;RMSE  &quot;,&quot;AJUSTE DEL MODELO  &quot;,&quot;VARIABLES CATEGÓRICAS  &quot;,&quot;EFECTO  &quot;,&quot;SIGNOS A PRIORI  &quot;,&quot;MATRIZ DE CORRELACIONES  &quot;,&quot;VIF  &quot;) #61

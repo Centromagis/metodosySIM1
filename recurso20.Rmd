@@ -34,7 +34,7 @@ Una de las formas para organizar y resumir conjuntos grandes de datos es por med
 
 Estos indicadores y gráficos pueden formar parte de informes estadísticos, tableros, posters o infografías. 
 
-El siguiente tablero, permite visualizar en tiempo real los paquetes de R que se están descargando. El tamaño del los circulos representan las frecuencias de cada uno de ellos, haciendo que los que se representan por circulos más grandes tengan una mayor frecuencia.
+El siguiente tablero, permite visualizar en tiempo real los paquetes de R que se están descargando. El tamaño del los círculos representan las frecuencias de cada uno de ellos, haciendo que los que se representan por círculos más grandes tengan una mayor frecuencia.
 
 </br><br/>
 

@@ -48,7 +48,7 @@ pie(t1)
 
 <div class="content-box-yellow">
 ### <span style="color:#034A94">**Retos**</span> 
-Explora el código oculto
+Explora el código oculto.
 
 ```{r, eval=FALSE}
 library(paqueteMETODOS)
@@ -143,7 +143,7 @@ print(plotly_graph)
 
 ## <span style="color:#034a94">**Gráfico de barras 2 **</span>
 
-Es posible que se requiera representar dos variables cualitativas al tiempo, para lo cual se debe construir una tabla cruzada o de doble entreada y luego representar la tabla resultante con un diagrama de barras.
+Es posible que se requiera representar dos variables cualitativas al tiempo, para lo cual se debe construir una tabla cruzada o de doble entrada y luego representar la tabla resultante con un diagrama de barras.
 
 <br/>
 ```{r}
@@ -165,7 +165,7 @@ names.arg=c("Juvenil","Abierta","Veteranos A","Veteranos B","Veteranos C"))
 <div class="content-box-yellow">
 ### <span style="color:#034A94">**Retos**</span> 
 
-Explora el código oculto
+Explora el código oculto.
 
 ```{r, eval=FALSE}
 library(ggplot2)

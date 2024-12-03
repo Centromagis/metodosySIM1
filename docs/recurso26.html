@@ -14,7 +14,7 @@
 
 <title> Ejemplo</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
 <script src="site_libs/navigation-1.1/codefolding.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -401,13 +401,13 @@ str(CarreraLuz22)</code></pre>
  $ nacionalidad: chr [1:1922] &quot;COL&quot; &quot;COL&quot; &quot;COL&quot; &quot;COL&quot; ...</code></pre>
 <p><br/></p>
 <p>Inicialmente se examina la data con el fin de detectar datos
-faltantes</p>
+faltantes.</p>
 <pre class="r"><code>colSums(is.na(CarreraLuz22))</code></pre>
 <pre><code>          id          sex         edad       origen      timerun    categoria 
            0            0            0            0            0            0 
 nacionalidad 
            0 </code></pre>
-<p>Lo cual también se puede validar de manera gráfica</p>
+<p>Lo cual también se puede validar de manera gráfica.</p>
 <p><br/></p>
 <pre class="r"><code>VIM::aggr(CarreraLuz22, cex.axis = 1, cex.lab= 1)  # gráficos de datos faltantes</code></pre>
 <p><img src="recurso26_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
@@ -421,10 +421,10 @@ variables en :</p>
 <p>Para el caso de las variables cualitativas utilizamos tablas y
 gráficos circulares o de torta para el caso de las variables
 cualitativas- nominales (sex, origen) y de barras en el caso de las
-variables - ordinales (categoría)</p>
+variables - ordinales (categoría).</p>
 <ul>
-<li><strong>sex</strong> :sexo del participante : Hombre, Mujer</li>
-<li><strong>origen</strong> : ciudad de origen del participante</li>
+<li><strong>sex</strong> :Sexo del participante : Hombre, Mujer</li>
+<li><strong>origen</strong> : Ciudad de origen del participante</li>
 <li><strong>categoría</strong> : 1. Juvenil, 2. Abierta, 3. Veteranos A,
 4. Veteranos B, 5. Veteranos C</li>
 </ul>
@@ -434,16 +434,18 @@ variables - ordinales (categoría)</p>
 <h3><strong>sex</strong></h3>
 <pre class="r"><code>attach(CarreraLuz22) # esta funcion permite nombrar las variables de manera independiente a la base
 summarytools::freq(sex, cumul = FALSE)</code></pre>
-<pre><code>Frequencies  
+<pre><code>Frequencies   
+sex     
+**Type:** Character   
 
-               Freq   % Valid   % Total
------------- ------ --------- ---------
-      Hombre   1178     61.29     61.29
-       Mujer    744     38.71     38.71
-        &lt;NA&gt;      0                0.00
-       Total   1922    100.00    100.00</code></pre>
+               Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
+------------ ------ --------- -------------- --------- --------------
+      Hombre   1178     61.29          61.29     61.29          61.29
+       Mujer    744     38.71         100.00     38.71         100.00
+        &lt;NA&gt;      0                               0.00         100.00
+       Total   1922    100.00         100.00    100.00         100.00</code></pre>
 <p>El resultado indica que un 61.29% de los participantes eran
-hombres</p>
+hombres.</p>
 <p><br/></p>
 <pre class="r"><code>library(ggplot2)
 library(scales)
@@ -463,10 +465,12 @@ labs(title=&quot;Distribución sexo participantes Carrera La Luz&quot;)</code></
 <p><img src="recurso26_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p><br/><br/></p>
 </div>
-<div id="categoria" class="section level3">
-<h3><strong>categoria</strong></h3>
+<div id="categoría" class="section level3">
+<h3><strong>categoría</strong></h3>
 <pre class="r"><code>summarytools::freq(categoria)</code></pre>
-<pre><code>Frequencies  
+<pre><code>Frequencies   
+categoria     
+**Type:** Character   
 
                        Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
 -------------------- ------ --------- -------------- --------- --------------
@@ -502,7 +506,7 @@ las frecuencias de las categorías participantes en la carrera.</p>
 <p>En el caso de las variables cuantitativas se construye un resumen de
 indicadores y su representación gráfica puede ser un histograma, gráfico
 de densidad, diagrama de cajas, diagrama de puntos, diagrama de
-lineas</p>
+lineas.</p>
 <ul>
 <li><strong>edad</strong> : edad del participante</li>
 <li><strong>timerun</strong> :tiempo de recorrido en segundos. Para una
@@ -514,11 +518,11 @@ mejor interpretación pararemos esta variable a minutos, dividiendo por
 <div id="edad" class="section level3">
 <h3><strong>edad</strong></h3>
 <pre class="r"><code>summarytools::descr(edad)</code></pre>
-<pre><code>Descriptive Statistics  
-value  
-N: 1922  
+<pre><code>Descriptive Statistics   
+edad     
+**N:** 1922   
 
-                      value
+                       edad
 ----------------- ---------
              Mean     37.45
           Std.Dev     10.90
@@ -541,8 +545,8 @@ N: 1922
 <li><strong>indicadores de centro</strong></li>
 </ul>
 <pre>
-Mean     37.45    # media
-Median     36.00    # mediana
+Mean     37.45    # Media
+Median     36.00    # Mediana
 </pre>
 <p>Los valores de media y mediana son similares, lo que indica
 posiblemente una forma simétrica. En este caso dado que la media es más
@@ -553,13 +557,13 @@ conocida, se utiliza este indicador para describir la muestra.</p>
 <li><strong>indicadores de dispersión</strong></li>
 </ul>
 <pre>
-Std.Dev     10.90     # desviación estandar
-IQR     14.00     # rango intercuartilico - Q3-Q1
-CV      0.29     # coeficiente de variación
+Std.Dev     10.90     # Desviación estándar
+IQR     14.00     # Rango intercuartílico - Q3-Q1
+CV      0.29     # Coeficiente de variación
 </pre>
 <p>Estos valores dan una idea de la dispersión de los datos, es decir
 que tanto se parecen o se diferencian. La desviación estándar como
-también el rango (max-min) y el rango intercuartilico IQR, corresponde a
+también el rango (max-min) y el rango intercuartílico IQR, corresponde a
 valores útiles al realizar comparación de grupos.</p>
 <p>El coeficiente de variación en cambio permite comparar la magnitud de
 la desviación estándar en comparación con la media de la variable. En
@@ -570,9 +574,9 @@ heterogéneo.</p>
 <li><strong>indicadores de forma</strong></li>
 </ul>
 <pre>
-Skewness      0.64    # sesgo
-SE.Skewness      0.06    # error estándar del sesgo
-Kurtosis      0.11    # curtosis
+Skewness      0.64    # Sesgo
+SE.Skewness      0.06    # Error estándar del sesgo
+Kurtosis      0.11    # Curtosis
 </pre>
 <p>En cuanto al valor del indicador de sesgo (0.64), representa una leve
 simetría positiva y un valor de curtosis similar al estándar
@@ -582,11 +586,11 @@ representado por la distribución normal estándar.</p>
 <li><strong>indicadores de posición</strong></li>
 </ul>
 <pre>
-Min     15.00     # mínimo
-Q1     30.00     # percentil 25
-Median     36.00     # percentil 50
-Q3     44.00     # percentil 75
-Max     76.00     # máximo
+Min     15.00     # Mínimo
+Q1     30.00     # Percentil 25
+Median     36.00     # Percentil 50
+Q3     44.00     # Percentil 75
+Max     76.00     # Máximo
 </pre>
 <p>Los indicadores de posición nos ayudan a comparar un valor con estos
 indicadores de referencia. Por ejemplo un atleta con un valor de 35
@@ -598,17 +602,17 @@ una variable aleatoria. Para el caso de la edad de los corredores podría
 decirse:</p>
 <p>Se presentaron 1922 atletas que tenían en promedio 37 años,
 conformando un grupo heterogéneo (CV 29%) y una distribución levemente
-asimetrica positiva.</p>
+asimétrica positiva.</p>
 <p><br/></p>
 <pre class="r"><code># Crear un histograma para la variable &#39;edad&#39; en ggplot2
 ggplot(CarreraLuz22, aes(x = edad)) +
 geom_histogram(binwidth = 5, fill = &quot;#0EB0C6&quot;, color = &quot;black&quot;, alpha = 0.7) +
 labs(title = &quot;Distribución de la edad&quot;,
-x = &quot;años&quot;,
+x = &quot;Años&quot;,
 y = &quot;Frecuencia&quot;)</code></pre>
 <p><img src="recurso26_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p>El histograma permite visualizar tanto distribución de la variable,
-como también el rango</p>
+como también el rango.</p>
 <p><br/><br/></p>
 <pre class="r"><code># Crear un diagrama de cajas para la variable &#39;edad&#39; en ggplot2
 ggplot(CarreraLuz22, aes(x = edad, y = &quot;&quot;)) +
@@ -618,11 +622,11 @@ x = &quot;&quot;,
 y = &quot;Edad&quot;)</code></pre>
 <p><img src="recurso26_files/figure-html/unnamed-chunk-10-1.png" width="960" style="display: block; margin: auto;" /></p>
 <p>El diagrama de cajas permite visualizar los datos atípicos (punto
-ubicados a la izquierda de la gráfica)</p>
+ubicados a la izquierda de la gráfica).</p>
 <p><br/><br/></p>
 </div>
-<div id="analisis-bivariado" class="section level2">
-<h2><strong>Analisis bivariado</strong></h2>
+<div id="análisis-bivariado" class="section level2">
+<h2><strong>Análisis bivariado</strong></h2>
 <p>Después de realizar una análisis unidimensional, puede ser necesario
 realizar análisis por grupos de variables . En este caso se pueden
 presentar las siguientes combinaciones:</p>
@@ -630,19 +634,19 @@ presentar las siguientes combinaciones:</p>
 <div id="cualitativa---cualitativa" class="section level3">
 <h3><strong>Cualitativa - Cualitativa</strong></h3>
 <pre class="r"><code>summarytools::ctable(categoria, sex)</code></pre>
-<pre><code>Cross-Tabulation, Row Proportions  
-categoria * sex  
-
----------------- ----- -------------- ------------- ---------------
-                   sex         Hombre         Mujer           Total
-       categoria                                                   
-      1. Juvenil           12 (63.2%)     7 (36.8%)     19 (100.0%)
-      2. Abierta          677 (57.4%)   502 (42.6%)   1179 (100.0%)
-  3. Veteranos A          276 (65.2%)   147 (34.8%)    423 (100.0%)
-  4. Veteranos B          155 (68.3%)    72 (31.7%)    227 (100.0%)
-  5. Veteranos C           58 (78.4%)    16 (21.6%)     74 (100.0%)
-           Total         1178 (61.3%)   744 (38.7%)   1922 (100.0%)
----------------- ----- -------------- ------------- ---------------</code></pre>
+<pre><code>Cross-Tabulation / Row Proportions   
+**Variables:** categoria * sex   
+   
+---------------- ----- --------------- -------------- ----------------
+                   sex          Hombre          Mujer            Total
+       categoria                                                      
+      1. Juvenil           12 (63.16%)     7 (36.84%)     19 (100.00%)
+      2. Abierta          677 (57.42%)   502 (42.58%)   1179 (100.00%)
+  3. Veteranos A          276 (65.25%)   147 (34.75%)    423 (100.00%)
+  4. Veteranos B          155 (68.28%)    72 (31.72%)    227 (100.00%)
+  5. Veteranos C           58 (78.38%)    16 (21.62%)     74 (100.00%)
+           Total         1178 (61.29%)   744 (38.71%)   1922 (100.00%)
+---------------- ----- --------------- -------------- ----------------</code></pre>
 <pre class="r"><code>library(ggplot2)
 
 ggplot(CarreraLuz22, aes(x = categoria, fill = sex)) +

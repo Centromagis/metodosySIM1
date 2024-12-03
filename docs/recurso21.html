@@ -14,7 +14,7 @@
 
 <title> Tablas de frecuencia</title>
 
-<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -36,8 +36,8 @@
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/all.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -401,7 +401,7 @@ table(is.na(vivienda_faltantes))</code></pre>
 <pre><code>
  FALSE   TRUE 
 104011   4279 </code></pre>
-<p>Tambien es posible determinar si existen problemas de sistematización
+<p>También es posible determinar si existen problemas de sistematización
 en los datos, como se presenta en la variable <code>ubicacion</code> de
 la base de datos <code>Cali</code> construida a partir de la información
 de Covid-19 ubicada en Datos abiertos.</p>
@@ -441,7 +441,7 @@ frecuencias. Por el contrario para las variables en escala ordinal se
 realiza el ordenamiento siguiendo la jerarquía de las categorías</p>
 <p></br></p>
 <p>Para las variables cualitativas en escala nominal, las tabla posee 3
-columnas :</p>
+columnas:</p>
 <div class="content-box-blue">
 <table>
 <colgroup>
@@ -588,8 +588,8 @@ href="https://es.wikipedia.org/wiki/Clasificaci%C3%B3n_para_la_Copa_Mundial_de_F
 </center>
 <p><br/></p>
 <p>En ella se resalta la mayor participación de los países afiliados a
-la UEFA (13), los cuales representan un 41.9% del total de paises que
-participaron, segudo de la CFA y AFC cada uno con un 16.1% de
+la UEFA (13), los cuales representan un 41.9% del total de países que
+participaron, seguido de la CFA y AFC cada uno con un 16.1% de
 participación.</p>
 <p></br></br></p>
 <p></br></br></p>
@@ -629,7 +629,7 @@ porcentaje acumulado hasta el nivel correspondiente.</td>
 <div id="ejemplo-1" class="section level3">
 <h3><span style="color:#FF7F00"><strong>Ejemplo</strong></span></h3>
 <center>
-<strong>Tabla 1.2</strong> : Nivel de satisfacción usuarios aereolinea,
+<strong>Tabla 1.2</strong> : Nivel de satisfacción usuarios aerolinea,
 servicio de alimentación/bebidas a
 </center>
 <pre class="r"><code>Calificacion = c( rep(&quot;1. Muy regular&quot;, 12837), 
@@ -643,7 +643,9 @@ t1</code></pre>
 1. Muy regular     2. Regular       3. Bueno   4. Muy bueno   5. Excelente 
          12837          21988          22300          24466          22313 </code></pre>
 <pre class="r"><code>summarytools::freq(Calificacion)</code></pre>
-<pre><code>Frequencies  
+<pre><code>Frequencies   
+Calificacion     
+**Type:** Character   
 
                          Freq   % Valid   % Valid Cum.   % Total   % Total Cum.
 -------------------- -------- --------- -------------- --------- --------------

@@ -66,13 +66,13 @@ Este tipo de gráficos permite visualizar además de la forma de los datos, su r
 library(paqueteMETODOS)
 data("CarreraLuz22")
 # seleccion de bases
-dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex=="Mujer" & CarreraLuz22$categoria=="4. Veteranos B")) # dataset de mujeres
+dataFc4=subset(CarreraLuz22, (CarreraLuz22$sex=="Mujer" & CarreraLuz22$categoria=="4. Veteranos B")) # Dataset de mujeres
 x=dataFc4$timerun/60
 hist(x, 
 breaks = 6,
 las=1,
 main = "Distribución de los tiempos mujeres Veteranas B",
-xlab="tiempo (min)",
+xlab="Tiempo (min)",
 ylab = "frecuencia",
 col ="#ee964b")
 ```
@@ -116,12 +116,12 @@ Este diagrama permite visualizar la forma de los datos, su rango y en que parte 
 par(mar = c(5, 4, 4, 1)+0.5)  # margenes de la gráfica
 plot(density(x), lwd=3, col="#0d3b66",
 main = "Distribución del tiempo - mujeres categoría Veteranas B",
-xlab="tiempo (min)",
-ylab = "densidad", las=1,
-cex.lab=1,  # tamaño de etiqueta ejes
-cex.axis=.8, # tamaño escalas de los ejes 
-cex.main=1, # tamaño del titulo
-cex.sub=1)    # tamaño del subtitulo)
+xlab="Tiempo (min)",
+ylab = "Densidad", las=1,
+cex.lab=1,  # Tamaño de etiqueta ejes
+cex.axis=.8, # Tamaño escalas de los ejes 
+cex.main=1, # Tamaño del titulo
+cex.sub=1)    # Tamaño del subtitulo
 ```
 
 
@@ -142,8 +142,8 @@ El diagrama de cajas permite visualizar el rango, los datos atípicos, los perce
 ```{r}
 boxplot(CarreraLuz22$timerun/60~CarreraLuz22$sex,
 main = "Distribución del tiempo carrera La Luz 2022",
-ylab="tiempo (min)",
-xlab = "sexo", las=1,
+ylab="Tiempo (min)",
+xlab = "Sexo", las=1,
 col=c("#f4d35e","#ee964b"))
 ```
 
@@ -202,7 +202,7 @@ p
 
 <br/>
 
-El gráfico de lineas es muy utilizado para representar series de tiempo, pudiendo visualizar sus principales características como son : tendencia, estacionalidad, ciclicidad y componentes aleatorios
+El gráfico de lineas es muy utilizado para representar series de tiempo, pudiendo visualizar sus principales características como son : tendencia, estacionalidad, ciclicidad y componentes aleatorios.
 
 
 ```{r, fig.align='center'}
@@ -215,7 +215,7 @@ inflacion <- c(99.31, 88.3,66,66.7,20.5,8.9,2.3,7.3,8.8,1.72,8.47,18.75,9.21,20.
 y=ts(inflacion, star=c(1946), end=c(2023), frequency=1)
 plot(y, type="l",
 main="Inflación Colombia  1946 a 2023",
-ylab="inflación acumulada anual (%)",
+ylab="Inflación acumulada anual (%)",
 xlab = "meses", las=1,
 col="#ee964b", 
 lwd = 4)
@@ -252,7 +252,7 @@ geom_line() + theme_minimal() +transition_reveal(year)
 
 <br/><br/><br/>
 
-Aunque en los retos previos se ha empleado el paquete gráfico `ggplot2`, a continuación se hace una presentación de su sintaxis
+Aunque en los retos previos se ha empleado el paquete gráfico `ggplot2`, a continuación se hace una presentación de su sintaxis.
 
 <br/>
 
@@ -302,7 +302,7 @@ Fuente: [Visualizacion de datos con ggplot2](https://rstudio.com/wp-content/uplo
 ```{r,fig.height=5}
 library(readr)
 library(ggplot2)
-ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas 
+ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # Lienso con escalas 
 ```
 
 2. Se determina el tipo de gráfico a realizar con las variables declaradas
@@ -311,7 +311,7 @@ ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))   # lienso con escalas
 
 ```{r,fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
-geom_point()     # grafico de puntos
+geom_point()     # Gráfico de puntos
 
 ```
 
@@ -330,21 +330,21 @@ Para declarar el tipo de gráfico se emplean diferentes geometrías, en este cas
 ```{r,fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 geom_point()+
-facet_wrap(~ sex)   # separacion por sexo
+facet_wrap(~ sex)   # Separación por sexo
 
 ```
 
-3. Se declaran las capas y las estadística a emplear
+3. Se declaran las capas y las estadística a emplea.
 
 <br/><br/>
 
 ```{r, message=FALSE, warning=FALSE,fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
-stat_smooth(method = "loess" , formula =y ~ x)  # ajuste de modelo 
+stat_smooth(method = "loess" , formula =y ~ x)  # Ajuste de modelo 
 ```
 
-4. Se definen capas de coordenadas para dar límites a los ejes
+4. Se definen capas de coordenadas para dar límites a los ejes.
 
 <br/><br/>
 
@@ -353,20 +353,20 @@ stat_smooth(method = "loess" , formula =y ~ x)  # ajuste de modelo
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
 stat_smooth(method = "loess" , formula =y ~ x)+        
-coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # ajuste de escalas ejes 
+coord_cartesian(ylim = c(15, 80), xlim = c(35,180))  # Ajuste de escalas ejes 
 ```
 
 
 <br/><br/>
 
-5. Se adicionan titulos y etiquetes de los ejes
+5. Se adicionan titulos y etiquetes de los ejes.
 
 ```{r, fig.height=5}
 ggplot(CarreraLuz22, aes(y=edad , x=timerun/60))+
 facet_wrap(~ categoria)+ 
 stat_smooth(method = "loess" , formula =y ~ x)+
 coord_cartesian(ylim = c(15, 80), xlim = c(35,180))+
-labs(title = "Tiempos Carrera La Luz  2022",  y= "Edad", x= "Tiempo (min)")  # titulo y etiquetas 
+labs(title = "Tiempos Carrera La Luz  2022",  y= "Edad", x= "Tiempo (min)")  # Titulo y etiquetas 
 ```
 
 **Listo !!**
@@ -391,7 +391,7 @@ axis.text = element_text( size = 10),
 legend.title = element_text(size = 10),
 legend.text = element_text(size = 10),  
 strip.text = element_text(size=10),
-title =element_text(size=10, face='bold') )# tamaño letra por grupos
+title =element_text(size=10, face='bold') )# Tamaño letra por grupos
 
 # Cálculo de los cuartiles
 cuartiles1=data.frame(prob=c(0.25,0.5,0.75),
